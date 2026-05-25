@@ -30,7 +30,7 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -311,115 +311,115 @@
 
     <!-- LOGICA DI BUSINESS IN JAVASCRIPT -->
     <script>
-        // DATASET 1: Le 29 Milestones definite nel file sheet
+        // DATASET 1: Le 29 Milestones definite nel file sheet con i loro NOMI ORIGINALI IN INGLESE
         const milestones = [
-            { id: "M1", dimension: "Governance", name: "Lettera d'Intenti Governance Pilota firmata", owner: "Marchesi", month: "mar 2026", desc: "Sottoscrizione formale dell'accordo bilaterale tra AUSL Romagna e IRST IRCCS per definire le fondamenta giuridiche, il comitato di pilotaggio e le responsabilità gestionali della rete romagnola.", reqs: ["GOV-1", "GOV-3"] },
-            { id: "M2", dimension: "Education and training", name: "Rapporto annuale sulla formazione validato dai pazienti", owner: "Bugani", month: "mar 2026", desc: "Redazione di un consuntivo formativo integrato di rete sottoposto alla revisione del comitato consultivo dei pazienti (patient advisory group) per validarne la comprensibilità ed efficacia.", reqs: ["GOV-4", "EDU-3"] },
-            { id: "M3", dimension: "Governance", name: "Completamento e integrazione Gruppi di Lavoro Pilota", owner: "Genovese", month: "mag 2026", desc: "Insediamento formale dei comitati operativi trans-istituzionali per ciascuna delle sette dimensioni, garantendo pari rappresentanza e processi condivisi.", reqs: ["GOV-1", "GOV-3", "IRC-3"] },
-            { id: "M4", dimension: "Education and training", name: "Lancio programma formativo per il cambiamento organizzativo", owner: "Bugani", month: "giu 2026", desc: "Attivazione di un corso di change-management e cultura di rete rivolto al personale medico, infermieristico e amministrativo per favorire l'integrazione di area vasta.", reqs: ["EDU-1", "EDU-2", "IRC-3"] },
-            { id: "M5", dimension: "Care", name: "Report di attività dei Gruppi Multidisciplinari (MTD) finalizzato", owner: "Tamberi", month: "lug 2026", desc: "Mappatura approfondita delle attività cliniche dei team multidisciplinari per patologia con l'identificazione e standardizzazione dei relativi KPI di processo.", reqs: ["IRC-2", "GOV-6"] },
-            { id: "M6", dimension: "Governance", name: "Bozza della Strategia di Ricerca (Research Strategy) redatta", owner: "Tamberi/Nanni", month: "lug 2026", desc: "Documento strategico che delinea le linee di ricerca prioritarie di rete, le sinergie tra i laboratori IRST e l'attività clinica dell'AUSL, e i meccanismi di coordinamento scientifico.", reqs: ["RES-3", "GOV-2"] },
-            { id: "M7", dimension: "Governance", name: "Bozza della Strategia Oncologica Comprensiva (Comprehensive Cancer Strategy) redatta", owner: "Tamberi/Nanni", month: "lug 2026", desc: "Piano strategico pluriennale del CCCRN che unisce le politiche di prevenzione, la presa in carico clinica, lo sviluppo scientifico e il trasferimento tecnologico.", reqs: ["GOV-2", "GOV-5"] },
-            { id: "M8", dimension: "Prevention", name: "Studio fattibilità integrazione Registro Tumori ed epidemiologia", owner: "Gaggeri", month: "ago 2026", desc: "Analisi di interoperabilità tecnica, sicurezza e data governance tra il Registro Tumori Romagna e i flussi clinici ospedalieri per facilitare la sorveglianza attiva.", reqs: ["PREV-2", "IRC-5"] },
-            { id: "M9", dimension: "Innovation", name: "Linee guida per trasferimento tecnologico e IP approvate", owner: "Battistelli", month: "set 2026", desc: "Definizione formale del modello operativo condiviso di Technology Transfer per tutelare i brevetti e valorizzare le invenzioni del personale medico e scientifico del network.", reqs: ["INN-1", "INN-2"] },
-            { id: "M10", dimension: "Care", name: "Dataset comune (Core Dataset) per registri clinici e di ricerca definito", owner: "Tamberi", month: "set 2026", desc: "Accordo sulle variabili minime clinico-scientifiche da strutturare in modo uniforme in tutte le unità operative oncologiche romagnole.", reqs: ["IRC-5", "IRC-2"] },
-            { id: "M11", dimension: "Research", name: "Accordo condivisione dati di ricerca e Comitato Etico coordinato", owner: "Mariotti", month: "ago 2026", desc: "Strutturazione di percorsi burocratici semplificati e pre-approvati per facilitare l'attivazione di trial clinici spontanei congiunti.", reqs: ["RES-4", "IRC-5"] },
-            { id: "M12", dimension: "Research", name: "Piano riorganizzazione Clinical Trials Center (CTC) approvato", owner: "Zingaretti", month: "ago 2026", desc: "Standardizzazione del personale di ricerca (study coordinator, data manager) e accentramento delle procedure di pre-screening per elevare l'eccellenza e l'attrattività dei trial.", reqs: ["RES-2", "RES-4"] },
-            { id: "M13", dimension: "Prevention", name: "Piano Congiunto di Prevenzione Oncologica redatto", owner: "Vespignani", month: "set 2026", desc: "Stesura di un piano coordinato di interventi di promozione della salute, orientato ai sani stili di vita e riduzione dei fattori di rischio, integrato con il territorio.", reqs: ["PREV-1", "PREV-4"] },
-            { id: "M14", dimension: "Research", name: "Accordo standardizzazione biobanche e patologia molecolare", owner: "Mariotti", month: "ott 2026", desc: "Formalizzazione di protocolli condivisi per la raccolta, conservazione e caratterizzazione dei campioni tessutali biologici a supporto di trial clinico-traslazionali.", reqs: ["IRC-4", "RES-2"] },
-            { id: "M15", dimension: "Education and training", name: "Core Curriculum formativo per i professionisti del CCCRN definito", owner: "Bugani", month: "ott 2026", desc: "Definizione degli standard formativi interdisciplinari richiesti a tutto lo staff medico, infermieristico e tecnico operante nei percorsi oncologici della rete.", reqs: ["EDU-1", "EDU-2"] },
-            { id: "M16", dimension: "Research", name: "Criteri selezione bando interno progetti Ricerca Traslazionale approvati", owner: "Mariotti", month: "ott 2026", desc: "Predisposizione di una griglia di valutazione scientifica meritocratica per co-finanziare progetti di ricerca 'bench-to-bedside' avviati in collaborazione.", reqs: ["RES-1", "RES-5"] },
-            { id: "M17", dimension: "Integration Care and Research", name: "Linee guida e KPI integrazione Ricerca e Cura definiti", owner: "Gentili", month: "nov 2026", desc: "Identificazione formale degli indicatori di performance atti a monitorare l'efficacia del connubio cura-ricerca (es. percentuale di pazienti in trial clinico sul totale).", reqs: ["IRC-1", "GOV-6"] },
-            { id: "M18", dimension: "Research", name: "Bozza roadmap implementazione Ricerca e piano Fundraising", owner: "Nanni/DSci", month: "nov 2026", desc: "Definizione degli obiettivi temporali di ricerca congiunta, pianificazione di bandi competitivi internazionali e coordinamento dell'attività del Grant Office.", reqs: ["RES-5", "GOV-5"] },
-            { id: "M19", dimension: "Education and training", name: "Eventi formativi congiunti su metodologia della ricerca", owner: "Tamberi", month: "dic 2026", desc: "Corsi interattivi congiunti rivolti ai clinici per perfezionare le competenze metodologiche di base ed avanzate, l'ideazione di protocolli e la GCP.", reqs: ["EDU-2", "RES-2"] },
-            { id: "M20", dimension: "Integration Care and Research", name: "Prototipo di Matching Tool percorsi clinici-trial attivi sviluppato", owner: "Vespignani", month: "gen 2027", desc: "Soluzione informatica pilota che scansiona in forma anonima e sicura i dati dei pazienti nei PDTA evidenziando possibili criteri di eleggibilità per i trial clinici attivi.", reqs: ["IRC-2", "INN-3"] },
-            { id: "M21", dimension: "Research", name: "Criteri selezione progetti ricerca clinica ed epidemiologica approvati", owner: "Gentili", month: "dic 2026", desc: "Criteri formali per definire e prioritizzare l'avvio di studi osservazionali e retrospettivi congiunti sfruttando le risorse informatiche condivise.", reqs: ["RES-3", "PREV-3"] },
-            { id: "M22", dimension: "Prevention", name: "Programmi congiunti Prevenzione Primaria e screening armonizzati", owner: "Ravaioli", month: "nov 2026", desc: "Accordo tra oncologia di rete e dipartimenti di Sanità Pubblica per armonizzare la comunicazione e ottimizzare l'adesione agli screening organizzati regionali.", reqs: ["PREV-1", "PREV-2"] },
-            { id: "M23", dimension: "Prevention", name: "Linee guida integrazione rete prevenzione e medicina territoriale", owner: "Ravaioli", month: "gen 2027", desc: "Accordo operativo con i Medici di Medicina Generale e la medicina di prossimità per l'identificazione precoce dei pazienti ad alto rischio eredo-familiare.", reqs: ["PREV-2", "PREV-4"] },
-            { id: "M24", dimension: "Innovation", name: "Strategia di gestione e valorizzazione Proprietà Intellettuale definita", owner: "Battistelli", month: "nov 2026", desc: "Quadro contrattuale che regola la co-titolarità dei diritti di IP, i contratti di riservatezza, e la spartizione delle royalty derivanti da ricerche brevettabili.", reqs: ["INN-1", "INN-4"] },
-            { id: "M25", dimension: "Care", name: "Lancio operativo del Molecular Tumor Board (MTB) di Area Vasta", owner: "Tamberi", month: "feb 2027", desc: "Avvio delle sedute formali regolari di deliberazione per l'impiego di farmaci off-label o l'inserimento in trial clinici mirati a seguito di test di sequenziamento NGS.", reqs: ["IRC-4", "IRC-2", "INN-3"] },
-            { id: "M26", dimension: "Governance", name: "Approvazione Politica di Coinvolgimento dei Pazienti (Patient Engagement)", owner: "Ravaioli", month: "feb 2027", desc: "Emanazione di un regolamento aziendale strutturato per accogliere i rappresentanti dei pazienti all'interno degli organi programmatori e decisionali del network.", reqs: ["GOV-4", "GOV-6"] },
-            { id: "M27", dimension: "Research", name: "Linee guida coinvolgimento pazienti nella ricerca approvate", owner: "Mariotti", month: "feb 2027", desc: "Documento metodologico per favorire la partecipazione attiva dei pazienti nella definizione di priorità scientifiche, nella scrittura dei consensi informati e nei PROM.", reqs: ["RES-6", "GOV-4"] },
-            { id: "M28", dimension: "Innovation", name: "Studio fattibilità e Regolamento Spin-off drafted", owner: "Battistelli", month: "feb 2027", desc: "Definizione formale delle modalità con cui i ricercatori del network possono brevettare idee, incubare start-up e sfruttare il legame con incubatori tecnologici.", reqs: ["INN-2", "INN-4"] },
-            { id: "M29", dimension: "Education and training", name: "Definizione del Piano Formativo ed Educativo finale integrato", owner: "Bugani", month: "set 2026", desc: "Consolidamento e fusione finale dei bisogni e delle proposte educative raccolti da tutti i tavoli operativi in un piano annuale coordinato.", reqs: ["EDU-1", "EDU-2"] }
+            { id: "M1", dimension: "Governance", name: "Pilot Governance Letter of Intent signed", owner: "Marchesi", month: "mar 2026", desc: "Sottoscrizione formale dell'accordo bilaterale tra AUSL Romagna e IRST IRCCS per definire le fondamenta giuridiche, il comitato di pilotaggio e le responsabilità gestionali della rete romagnola.", reqs: ["GOV-1", "GOV-3"] },
+            { id: "M2", dimension: "Education and training", name: "Patient-validated annual education report", owner: "Bugani", month: "mar 2026", desc: "Redazione di un consuntivo formativo integrato di rete sottoposto alla revisione del comitato consultivo dei pazienti (patient advisory group) per validarne la comprensibilità ed efficacia.", reqs: ["GOV-4", "EDU-3"] },
+            { id: "M3", dimension: "Governance", name: "IRST-AUSL Pilot Working Groups (WG) completed and integrated", owner: "Genovese", month: "mag 2026", desc: "Insediamento formale dei comitati operativi trans-istituzionali per ciascuna delle sette dimensioni, garantendo pari rappresentanza e processi condivisi.", reqs: ["GOV-1", "GOV-3", "IRC-3"] },
+            { id: "M4", dimension: "Education and training", name: "Launch of a joint training program to support organizational change and integration within the CCCRN", owner: "Bugani", month: "giu 2026", desc: "Attivazione di un corso di change-management e cultura di rete rivolto al personale medico, infermieristico e amministrativo per favorire l'integrazione di area vasta.", reqs: ["EDU-1", "EDU-2", "IRC-3"] },
+            { id: "M5", dimension: "Care", name: "MTD activity report with selected KPIs finalized", owner: "Tamberi", month: "lug 2026", desc: "Mappatura approfondita delle attività cliniche dei team multidisciplinari per patologia con l'identificazione e standardizzazione dei relativi KPI di processo.", reqs: ["IRC-2", "GOV-6"] },
+            { id: "M6", dimension: "Governance", name: "Research Strategy document drafted", owner: "Tamberi/Nanni", month: "lug 2026", desc: "Documento strategico che delinea le linee di ricerca prioritarie di rete, le sinergie tra i laboratori IRST e l'attività clinica dell'AUSL, e i meccanismi di coordinamento scientifico.", reqs: ["RES-3", "GOV-2"] },
+            { id: "M7", dimension: "Governance", name: "Comprehensive Cancer Strategy document drafted", owner: "Tamberi/Nanni", month: "lug 2026", desc: "Piano strategico pluriennale del CCCRN che unisce le politiche di prevenzione, la presa in carico clinica, lo sviluppo scientifico e il trasferimento tecnologico.", reqs: ["GOV-2", "GOV-5"] },
+            { id: "M8", dimension: "Prevention", name: "Feasibility study for Cancer Registry and Epidemiology integration drafted", owner: "Gaggeri", month: "ago 2026", desc: "Analisi di interoperabilità tecnica, sicurezza e data governance tra il Registro Tumori Romagna e i flussi clinici ospedalieri per facilitare la sorveglianza attiva.", reqs: ["PREV-2", "IRC-5"] },
+            { id: "M9", dimension: "Innovation", name: "TTO and IP joint guidelines drafted", owner: "Battistelli", month: "set 2026", desc: "Definizione formale del modello operativo condiviso di Technology Transfer per tutelare i brevetti e valorizzare le invenzioni del personale medico e scientifico del network.", reqs: ["INN-1", "INN-2"] },
+            { id: "M10", dimension: "Care", name: "Common Core Dataset for clinical and research registries defined", owner: "Tamberi", month: "set 2026", desc: "Accordo sulle variabili minime clinico-scientifiche da strutturare in modo uniforme in tutte le unità operative oncologiche romagnole.", reqs: ["IRC-5", "IRC-2"] },
+            { id: "M11", dimension: "Research", name: "Research Data Sharing agreement and coordinated Ethical Committee approach drafted", owner: "Mariotti", month: "ago 2026", desc: "Strutturazione di percorsi burocratici semplificati e pre-approvati per facilitare l'attivazione di trial clinici spontanei congiunti.", reqs: ["RES-4", "IRC-5"] },
+            { id: "M12", dimension: "Research", name: "Reorganisation plan of the Clinical Trials Center (CTC) approved", owner: "Zingaretti", month: "ago 2026", desc: "Standardizzazione del personale di ricerca (study coordinator, data manager) e accentramento delle procedure di pre-screening per elevare l'eccellenza e l'attrattività dei trial.", reqs: ["RES-2", "RES-4"] },
+            { id: "M13", dimension: "Prevention", name: "Joint Oncology Prevention Plan drafted", owner: "Vespignani", month: "set 2026", desc: "Stesura di un piano coordinato di interventi di promozione della salute, orientato ai sani stili di vita e riduzione dei fattori di rischio, integrato con il territorio.", reqs: ["PREV-1", "PREV-4"] },
+            { id: "M14", dimension: "Research", name: "Standardisation agreement on biobanking and molecular pathology drafted", owner: "Mariotti", month: "ott 2026", desc: "Formalizzazione di protocolli condivisi per la raccolta, conservazione e caratterizzazione dei campioni tessutali biologici a supporto di trial clinico-traslazionali.", reqs: ["IRC-4", "RES-2"] },
+            { id: "M15", dimension: "Education and training", name: "Definition of the Core Curriculum for CCCRN professionals", owner: "Bugani", month: "ott 2026", desc: "Definizione degli standard formativi interdisciplinari richiesti a tutto lo staff medico, infermieristico e tecnico operante nei percorsi oncologici della rete.", reqs: ["EDU-1", "EDU-2"] },
+            { id: "M16", dimension: "Research", name: "Selection criteria for the internal call of translational research projects approved", owner: "Mariotti", month: "ott 2026", desc: "Predisposizione di una griglia di valutazione scientifica meritocratica per co-finanziare progetti di ricerca 'bench-to-bedside' avviati in collaborazione.", reqs: ["RES-1", "RES-5"] },
+            { id: "M17", dimension: "Integration Care and Research", name: "Guidelines and KPIs for integration of Research and Care defined", owner: "Gentili", month: "nov 2026", desc: "Identificazione formale degli indicatori di performance atti a monitorare l'efficacia del connubio cura-ricerca (es. percentuale di pazienti in trial clinico sul totale).", reqs: ["IRC-1", "GOV-6"] },
+            { id: "M18", dimension: "Research", name: "Research implementation roadmap and fundraising plan drafted", owner: "Nanni/DSci", month: "nov 2026", desc: "Definizione degli obiettivi temporali di ricerca congiunta, pianificazione di bandi competitivi internazionali e coordinamento dell'attività del Grant Office.", reqs: ["RES-5", "GOV-5"] },
+            { id: "M19", dimension: "Education and training", name: "Joint training events on research methodology", owner: "Tamberi", month: "dic 2026", desc: "Corsi interattivi congiunti rivolti ai clinici per perfezionare le competenze metodologiche di base ed avanzate, l'ideazione di protocolli e la GCP.", reqs: ["EDU-2", "RES-2"] },
+            { id: "M20", dimension: "Integration Care and Research", name: "Pilot matching tool between clinical pathways and active clinical trials developed", owner: "Vespignani", month: "gen 2027", desc: "Soluzione informatica pilota che scansiona in forma anonima e sicura i dati dei pazienti nei PDTA evidenziando possibili criteri di eleggibilità per i trial clinici attivi.", reqs: ["IRC-2", "INN-3"] },
+            { id: "M21", dimension: "Research", name: "Selection criteria for joint clinical and epidemiological research projects approved", owner: "Gentili", month: "dic 2026", desc: "Criteri formali per definire e prioritizzare l'avvio di studi osservazionali e retrospettivi congiunti sfruttando le risorse informatiche condivise.", reqs: ["RES-3", "PREV-3"] },
+            { id: "M22", dimension: "Prevention", name: "Joint primary prevention programs and screening activities harmonised", owner: "Ravaioli", month: "nov 2026", desc: "Accordo tra oncologia di rete e dipartimenti di Sanità Pubblica per armonizzare la comunicazione e ottimizzare l'adesione agli screening organizzati regionali.", reqs: ["PREV-1", "PREV-2"] },
+            { id: "M23", dimension: "Prevention", name: "Guidelines for integration of the prevention network with primary care drafted", owner: "Ravaioli", month: "gen 2027", desc: "Accordo operativo con i Medici di Medicina Generale e la medicina di prossimità per l'identificazione precoce dei pazienti ad alto rischio eredo-familiare.", reqs: ["PREV-2", "PREV-4"] },
+            { id: "M24", dimension: "Innovation", name: "Strategy for intellectual property management and exploitation defined", owner: "Battistelli", month: "nov 2026", desc: "Quadro contrattuale che regola la co-titolarità dei diritti di IP, i contratti di riservatezza, e la spartizione delle royalty derivanti da ricerche brevettabili.", reqs: ["INN-1", "INN-4"] },
+            { id: "M25", dimension: "Care", name: "MTB activities launched (conditional to regional reorganisation)", owner: "Tamberi", month: "feb 2027", desc: "Avvio delle sedute formali regolari di deliberazione per l'impiego di farmaci off-label o l'inserimento in trial clinici mirati a seguito di test di sequenziamento NGS.", reqs: ["IRC-4", "IRC-2", "INN-3"] },
+            { id: "M26", dimension: "Governance", name: "Patient Engagement Policy approved", owner: "Ravaioli", month: "feb 2027", desc: "Emanazione di un regolamento aziendale strutturato per accogliere i rappresentanti dei pazienti all'interno degli organi programmatori e decisionali del network.", reqs: ["GOV-4", "GOV-6"] },
+            { id: "M27", dimension: "Research", name: "Research Patient Involvement guidelines approved", owner: "Mariotti", month: "feb 2027", desc: "Documento metodologico per favorire la partecipazione attiva dei pazienti nella definizione di priorità scientifiche, nella scrittura dei consensi informati e nei PROM.", reqs: ["RES-6", "GOV-4"] },
+            { id: "M28", dimension: "Innovation", name: "Feasibility analysis and Spin-off Regulations' for CCCRN drafted", owner: "Battistelli", month: "feb 2027", desc: "Definizione formale delle modalità con cui i ricercatori del network possono brevettare idee, incubare start-up e sfruttare il legame con incubatori tecnologici.", reqs: ["INN-2", "INN-4"] },
+            { id: "M29", dimension: "Education and training", name: "Collection of content inputs from other workstreams and definition of the Education and Training Plan", owner: "Bugani", month: "set 2026", desc: "Consolidamento e fusione finale dei bisogni e delle proposte educative raccolti da tutti i tavoli operativi in un piano annuale coordinato.", reqs: ["EDU-1", "EDU-2"] }
         ];
 
-        // DATASET 2: Requisiti e Standard del documento CraNE D7.2
+        // DATASET 2: Requisiti e Standard del documento CraNE D7.2 in INGLESE ORIGINALE
         const requirements = [
             {
                 theme: "Governance & Management",
                 idPrefix: "GOV",
-                desc: "Il tema della governance assicura che il network sia guidato da strutture formali coordinate, supportate da un chiaro disegno strategico e con un focus sul miglioramento continuo della qualità e sul coinvolgimento del paziente.",
+                desc: "The governance and management theme ensures the network is directed by coordinated formal structures, guided by a clear strategic plan, and focused on continuous quality improvement and patient involvement.",
                 standards: [
-                    { id: "GOV-1", name: "Governance Integrata e Status Legale", desc: "Struttura di governance unificata con un chiaro inquadramento legale/operativo concordato tra gli istituti partecipanti." },
-                    { id: "GOV-2", name: "Strategia Oncologica Comprensiva", desc: "Piano oncologico strategico pluriennale scritto e formalizzato, allineato alle indicazioni europee (EU Beating Cancer Plan)." },
-                    { id: "GOV-3", name: "Team di Leadership e Organizzazione di Rete", desc: "Comitato esecutivo multidisciplinare designato, con ruoli organizzativi integrati per gestire le attività quotidiane della rete." },
-                    { id: "GOV-4", name: "Coinvolgimento dei Pazienti (Patient Advocacy)", desc: "Formalizzazione di percorsi strutturati di ascolto e presenza attiva dei rappresentanti dei pazienti nella governance." },
-                    { id: "GOV-5", name: "Sostenibilità Finanziaria e Allocazione Risorse", desc: "Budgeting trasparente e congiunto con analisi di allocazione delle risorse per garantire stabilità a lungo termine alle attività integrate." },
-                    { id: "GOV-6", name: "Gestione della Qualità e Miglioramento Continuo", desc: "Presenza di un sistema di miglioramento e certificazione della qualità assistenziale con l'impiego costante di KPI prestazionali." }
+                    { id: "GOV-1", name: "Integrated Governance and Legal Status", desc: "Unified governance structure with a clear legal/operational framework agreed upon by the participating institutions." },
+                    { id: "GOV-2", name: "Comprehensive Cancer Strategy", desc: "Written and formalized multi-year strategic cancer plan aligned with European initiatives (EU Beating Cancer Plan)." },
+                    { id: "GOV-3", name: "Leadership Team and Network Structure", desc: "Designated multidisciplinary executive committee with integrated organizational roles to manage the network's daily activities." },
+                    { id: "GOV-4", name: "Patient Involvement / Patient Advocacy", desc: "Formalization of structured listening pathways and active presence of patient representatives within the governance." },
+                    { id: "GOV-5", name: "Financial Sustainability and Resource Allocation", desc: "Transparent and joint budgeting with resource allocation analysis to ensure long-term stability of integrated activities." },
+                    { id: "GOV-6", name: "Quality Management and Continuous Improvement", desc: "Presence of an active quality improvement and certification system using consistent performance KPIs." }
                 ]
             },
             {
                 theme: "Research",
                 idPrefix: "RES",
-                desc: "Gli standard per l'area di ricerca garantiscono lo sviluppo di programmi scientifici traslazionali d'eccellenza, un portfolio attivo di trial clinici regolati da protocolli etici trasparenti e un'infrastruttura di ricerca moderna.",
+                desc: "Research standards ensure the development of translational scientific programs of excellence, an active portfolio of clinical trials regulated by transparent ethical protocols, and a modern research infrastructure.",
                 standards: [
-                    { id: "RES-1", name: "Ricerca Traslazionale ed Eccellenza Scientifica", desc: "Pianificazione e conduzione di progetti che collegano in modo diretto i risultati di laboratorio con l'applicazione clinica sui pazienti." },
-                    { id: "RES-2", name: "Infrastrutture di Ricerca (Laboratori, CTC)", desc: "Dotazione e condivisione di infrastrutture di ricerca moderne, inclusi laboratori avanzati e un Clinical Trials Center efficiente." },
-                    { id: "RES-3", name: "Comitato Scientifico e Strategia di Ricerca", desc: "Definizione formale della politica scientifica e presenza di un organo indipendente per il peer-review delle proposte di ricerca interne." },
-                    { id: "RES-4", name: "Portfolio di Trial Clinici e Approvazioni Etiche", desc: "Gestione centralizzata e fluida dei trial clinici, supportata da una rapida sottomissione e controllo etico regolatorio." },
-                    { id: "RES-5", name: "Finanziamenti Competitivi, Grants e Pubblicazioni", desc: "Attrattività scientifica dimostrabile tramite pubblicazioni su riviste ad alto impatto e successo nell'ottenimento di bandi europei e nazionali." },
-                    { id: "RES-6", name: "Coinvolgimento dei Pazienti nella Ricerca", desc: "Linee guida attive per l'integrazione del punto di vista del paziente nel disegno dei protocolli di ricerca clinica." }
+                    { id: "RES-1", name: "Translational Research and Scientific Excellence", desc: "Planning and conducting projects that directly bridge laboratory findings and clinical application for patients." },
+                    { id: "RES-2", name: "Research Infrastructures (Laboratories, Clinical Trial Center)", desc: "Provision and sharing of modern research infrastructures, including advanced laboratories and an efficient Clinical Trials Center." },
+                    { id: "RES-3", name: "Scientific Committee and Research Strategy", desc: "Formal definition of the scientific policy and presence of an independent body for peer-review of internal research proposals." },
+                    { id: "RES-4", name: "Clinical Trials Portfolio and Ethical Approvals", desc: "Centralized and smooth management of clinical trials, supported by prompt regulatory and ethical review." },
+                    { id: "RES-5", name: "Competitive Funding, Grants, and Publications", desc: "Demonstrable scientific competitiveness through high-impact publications and success in securing national and European grants." },
+                    { id: "RES-6", name: "Patient Involvement in Research", desc: "Active guidelines to integrate the patient's perspective directly into the design of clinical research protocols." }
                 ]
             },
             {
                 theme: "Integration of Research and Care",
                 idPrefix: "IRC",
-                desc: "L'integrazione tra la pratica clinica e le attività di laboratorio rappresenta il cuore della definizione di un CCC. Questa sezione valuta come i flussi informativi e le decisioni di cura siano legate ai percorsi scientifici.",
+                desc: "The integration between clinical practice and laboratory research is at the heart of a Comprehensive Cancer Centre. This section evaluates how information flows and care decisions are bound to scientific pathways.",
                 standards: [
-                    { id: "IRC-1", name: "Interfaccia Strutturale e Leadership Comune Cura-Ricerca", desc: "Sinergia dimostrabile tra i primariati clinici e i laboratori di ricerca per massimizzare il travaso di scoperte scientifiche." },
-                    { id: "IRC-2", name: "Percorsi Clinico-Scientifici e Integrazione dei Trial", desc: "Integrazione dei trial clinici direttamente all'interno dei Percorsi Diagnostici Terapeutici Assistenziali (PDTA) per garantire accesso prioritario ai pazienti." },
-                    { id: "IRC-3", name: "Cultura Collaborativa e Scambio Interdisciplinare", desc: "Presenza di spazi fisici e virtuali per meeting congiunti, presentazioni scientifiche e discussione collegiale di casi." },
-                    { id: "IRC-4", name: "Standard di Biobancaggio e Patologia Molecolare Condivisa", desc: "Condivisione di protocolli di patologia molecolare digitale e standard di biobanca integrata a beneficio dei trial di precisione." },
-                    { id: "IRC-5", name: "Sistemi Informativi e Database di Rete Interoperabili", desc: "Utilizzo di database clinici e piattaforme IT interoperabili capaci di incrociare dati di degenza con quelli dei registri di ricerca." }
+                    { id: "IRC-1", name: "Structural Interface and Joint Leadership for Care and Research", desc: "Demonstrable synergy between clinical leadership and research laboratories to maximize the translation of scientific discoveries." },
+                    { id: "IRC-2", name: "Clinical-Scientific Pathways and Trial Integration", desc: "Integration of clinical trials directly within Diagnostic-Therapeutic Pathways (PDTAs) to ensure priority patient access." },
+                    { id: "IRC-3", name: "Collaborative Culture and Interdisciplinary Exchange", desc: "Presence of physical and virtual spaces for joint meetings, scientific presentations, and collegial case discussions." },
+                    { id: "IRC-4", name: "Standardised Biobanking and Shared Molecular Pathology", desc: "Sharing of digital molecular pathology protocols and integrated biobank standards to benefit precision medicine trials." },
+                    { id: "IRC-5", name: "Interoperable Information Systems and Network Databases", desc: "Use of interoperable clinical databases and IT platforms capable of cross-referencing patient records with research registries." }
                 ]
             },
             {
                 theme: "Innovation",
                 idPrefix: "INN",
-                desc: "L'innovazione include le capacità di trasferimento tecnologico della struttura, i canali per la creazione di spin-off commerciali, l'uso di diagnostica avanzata e la stima dell'impatto economico delle tecnologie sanitarie.",
+                desc: "Innovation covers the technology transfer capabilities of the structure, pathways for creating commercial spin-offs, adoption of advanced diagnostics, and socioeconomic impact assessment of health technologies.",
                 standards: [
-                    { id: "INN-1", name: "Trasferimento Tecnologico e Protezione della IP", desc: "Modello strutturato per la protezione brevettuale e la negoziazione attiva di licenze d'uso con partner industriali." },
-                    { id: "INN-2", name: "Supporto a Startup, Spin-off e Partnership", desc: "Regolamentazione chiara e supporto amministrativo per facilitare la nascita di spin-off accademici a partire dalla ricerca traslazionale." },
-                    { id: "INN-3", name: "Adozione Rapida di Diagnostica e Terapie Innovative", desc: "Integrazione tempestiva nella routine di test Next Generation Sequencing (NGS), strumenti di intelligenza artificiale e digital health." },
-                    { id: "INN-4", name: "Valutazione dell'Impatto Socio-Economico", desc: "Valutazione economica sistematica e Health Technology Assessment (HTA) delle innovazioni prima di introdurle nei flussi assistenziali." }
+                    { id: "INN-1", name: "Technology Transfer and IP Protection", desc: "Structured model for patent protection and active licensing negotiations with industrial partners." },
+                    { id: "INN-2", name: "Support for Start-ups, Spin-offs, and Partnerships", desc: "Clear regulatory framework and administrative support to facilitate academic spin-offs arising from translational research." },
+                    { id: "INN-3", name: "Rapid Adoption of Diagnostic and Therapeutic Innovations", desc: "Timely integration of Next Generation Sequencing (NGS) testing, artificial intelligence tools, and digital health in routine care." },
+                    { id: "INN-4", name: "Socio-economic Impact and HTA (Health Technology Assessment)", desc: "Systematic economic evaluation and Health Technology Assessment (HTA) of innovations prior to workflow integration." }
                 ]
             },
             {
                 theme: "Prevention",
                 idPrefix: "PREV",
-                desc: "Garantisce che il CCC non sia solo un luogo di cura ma anche un perno strategico per la prevenzione, raccordando le eccellenze specialistiche con i piani e le attività di salute pubblica territoriali.",
+                desc: "Ensures the CCC acts as a strategic hub for prevention, linking highly specialized clinical capabilities with public health territorial programs.",
                 standards: [
-                    { id: "PREV-1", name: "Programmi di Prevenzione (Codice Europeo)", desc: "Campagne attive di prevenzione oncologica primaria allineate alle linee guida del Codice Europeo contro il Cancro." },
-                    { id: "PREV-2", name: "Integrazione con Registri Epidemiologici e Screening Pubblici", desc: "Raccordo consolidato con i registri dei tumori regionali e supporto attivo alle campagne istituzionali di screening oncologico." },
-                    { id: "PREV-3", name: "Ricerca Epidemiologica e Studi sui Fattori di Rischio", desc: "Conduzione di indagini scientifiche per individuare correlazioni e fattori di rischio legati al territorio e all'esposizione ambientale." },
-                    { id: "PREV-4", name: "Educazione Pubblica e Promozione della Salute", desc: "Iniziative strutturate e programmi divulgativi per innalzare l'alfabetizzazione sanitaria (health literacy) della cittadinanza." }
+                    { id: "PREV-1", name: "Prevention Programs (European Code Against Cancer)", desc: "Active primary prevention campaigns aligned with the guidelines of the European Code Against Cancer." },
+                    { id: "PREV-2", name: "Integration with Epidemiological Registries and Public Screening", desc: "Consolidated linkage with regional cancer registries and robust support for institutional screening campaigns." },
+                    { id: "PREV-3", name: "Epidemiological Research and Risk Factor Studies", desc: "Conducing scientific inquiries to map correlations and risk factors tied to environmental and regional exposures." },
+                    { id: "PREV-4", name: "Public Education and Health Promotion", desc: "Structured public initiatives and outreach programs to enhance the health literacy of the general population." }
                 ]
             },
             {
                 theme: "Education & Training",
                 idPrefix: "EDU",
-                desc: "Gli standard formativi garantiscono che il personale mantenga l'eccellenza tramite formazione interdisciplinare continua, facilitando al contempo programmi di istruzione e alfabetizzazione oncologica per i pazienti.",
+                desc: "Educational standards ensure staff maintains excellence through continuous interdisciplinary training while providing cancer education and empowerment programs for patients.",
                 standards: [
-                    { id: "EDU-1", name: "Piani di Formazione Specialistica", desc: "Programmi educativi continui di alto profilo per oncologi, chirurghi, infermieri di ricerca e personale scientifico del network." },
-                    { id: "EDU-2", name: "Formazione Interdisciplinare e Sviluppo Continuo", desc: "Attività didattiche multi-professionali per consolidare la cultura della condivisione clinica e la conoscenza della ricerca clinica." },
-                    { id: "EDU-3", name: "Educazione, Empowerment e Literacy dei Pazienti", desc: "Iniziative didattiche specifiche per i pazienti e i caregiver volte a migliorarne la partecipazione informata al percorso di cura." },
-                    { id: "EDU-4", name: "Affiliazioni Accademiche e Percorsi Universitari", desc: "Stretti legami formativi con università e scuole di specializzazione medica per l'integrazione di studenti in tirocini clinici o dottorati." }
+                    { id: "EDU-1", name: "Specialist Training Programs", desc: "Continuous high-profile educational programs for oncologists, surgeons, research nurses, and network scientific staff." },
+                    { id: "EDU-2", name: "Interdisciplinary Training and Continuous Professional Development", desc: "Multi-professional teaching activities to foster clinical sharing and fundamental clinical research knowledge." },
+                    { id: "EDU-3", name: "Patient Education, Empowerment, and Health Literacy", desc: "Targeted educational initiatives for patients and caregivers to improve informed participation along the care pathway." },
+                    { id: "EDU-4", name: "Academic Affiliations and University Pathways", desc: "Strong educational bonds with universities and medical residency schools to integrate students in clinical placements or PhDs." }
                 ]
             }
         ];
 
-        // DATABASE DELLE SINERGIE DETTAGLIATE (Spiegazione puntuale della mappatura)
+        // DATABASE DELLE SINERGIE DETTAGLIATE (Spiegazione puntuale della mappatura, mantenuta in italiano)
         const mappings = {
             "M1_GOV-1": "La Lettera d'Intenti sigla l'accordo istituzionale e normativo iniziale tra IRST e AUSL, costituendo l'atto formale di governance integrata previsto dallo standard.",
             "M1_GOV-3": "Nomina ufficialmente i componenti del Comitato di Pilotaggio, gettando le basi per l'organo direttivo integrato di area vasta.",
@@ -459,7 +459,7 @@
             "M17_GOV-6": "Inserisce la valutazione scientifica del network nel piano generale della gestione della qualità organizzativa aziendale.",
             "M18_RES-5": "Pianifica a tavolino la partecipazione a grant europei per finanziare i team di ricerca congiunti, favorendo un afflusso costante di finanziamenti esterni.",
             "M18_GOV-5": "Diversifica le entrate finanziarie della rete per assicurarne la stabilità e la sostenibilità economica futura rispetto ai bilanci ordinari.",
-            "M19_EDU-2": "Fornisce formazione multi-professionale focalizzata sul saper fare ricerca clinica per infermieri, specialisti medici e biologi del network.",
+            "M19_EDU-2": "Forige formazione multi-professionale focalizzata sul saper fare ricerca clinica per infermieri, specialisti medici e biologi del network.",
             "M19_RES-2": "Innalza il livello tecnico e professionale dello staff impiegato all'interno delle infrastrutture e delle segreterie scientifiche della rete.",
             "M20_IRC-2": "Garantisce a ogni paziente inserito nei PDTA un monitoraggio in tempo reale della possibilità di accedere alle migliori terapie sperimentali.",
             "M20_INN-3": "Rappresenta una soluzione di digital-health pionieristica volta a integrare la tecnologia informatica di precisione all'interno della clinica quotidiana.",
@@ -647,14 +647,21 @@
                 if (ms.dimension === "Research") { borderColor = "border-l-4 border-l-blue-500"; badgeColor = "bg-blue-50 text-blue-700 border-blue-150 border"; }
                 if (ms.dimension === "Integration Care and Research") { borderColor = "border-l-4 border-l-indigo-500"; badgeColor = "bg-indigo-50 text-indigo-700 border-indigo-150 border"; }
                 if (ms.dimension === "Innovation") { borderColor = "border-l-4 border-l-purple-500"; badgeColor = "bg-purple-50 text-purple-700 border-purple-150 border"; }
-                if (ms.dimension === "Prevention") { borderColor = "border-l-4 border-l-emerald-500"; badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-150 border"; }
+                if (ms.dimension === "Prevention") { borderColor = "border-l-4 border-l-emerald-500"; badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200 border"; }
                 if (ms.dimension === "Education and training") { borderColor = "border-l-4 border-l-teal-500"; badgeColor = "bg-teal-50 text-teal-700 border-teal-150 border"; }
 
                 // Genera lista dei requisiti supportati
                 let reqBadgesHTML = "";
                 ms.reqs.forEach(reqId => {
+                    // Trova il nome del requisito in inglese
+                    let rName = "";
+                    requirements.forEach(theme => {
+                        const std = theme.standards.find(s => s.id === reqId);
+                        if (std) rName = std.name;
+                    });
+
                     reqBadgesHTML += `
-                        <span class="inline-flex items-center gap-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] font-bold px-2 py-0.5 rounded-lg border border-slate-200 shadow-sm transition-colors">
+                        <span class="inline-flex items-center gap-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] font-bold px-2 py-0.5 rounded-lg border border-slate-200 shadow-sm transition-colors" title="${rName}">
                             <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
                             ${reqId}
                         </span>
@@ -751,9 +758,9 @@
                                     <div class="flex items-center justify-between gap-2 border-b border-slate-200/50 pb-1.5 mb-1.5">
                                         <div class="flex items-center gap-1.5">
                                             <span class="font-mono font-bold text-[10px] text-slate-500 bg-white border px-1.5 py-0.5 rounded">${ms.id}</span>
-                                            <span class="font-bold text-slate-800 text-[11px]">${ms.name}</span>
+                                            <span class="font-bold text-slate-800 text-[11px] leading-tight">${ms.name}</span>
                                         </div>
-                                        <span class="text-[9px] text-slate-400">${ms.owner} | ${ms.month}</span>
+                                        <span class="text-[9px] text-slate-400 shrink-0">${ms.owner} | ${ms.month}</span>
                                     </div>
                                     <p class="text-slate-600 text-[11px] leading-relaxed italic">"${detailedExplanation}"</p>
                                 </div>
@@ -761,7 +768,7 @@
                         });
                     } else {
                         msListHTML = `
-                            <p class="text-xs text-rose-500 font-medium italic flex items-center gap-1.5 bg-rose-50 border border-rose-100 p-2.5 rounded-lg">
+                            <p class="text-xs text-rose-500 font-medium italic flex items-center gap-1.5 bg-rose-50 border border-rose-100 p-2.5 rounded-lg w-full">
                                 <span class="w-1.5 h-1.5 bg-rose-500 rounded-full"></span>
                                 Nessuna milestone operativa mappata direttamente. Presidio basato sulle normali attività cliniche.
                             </p>
