@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUNetCCC & CraNE D7.2 - Cruscotto di Allineamento Strategico</title>
+    <!-- Tailwind CSS per uno stile moderno e reattivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            600: '#1d4ed8',
+                            700: '#1d40b0',
+                            800: '#1e3a8a',
+                            900: '#0f172a'
+                        },
+                        clinical: {
+                            teal: '#0d9488',
+                            indigo: '#4f46e5',
+                            slate: '#64748b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header / Navigazione Superiore -->
+    <header class="bg-brand-900 text-white shadow-lg border-b border-brand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-3">
+                        <span class="bg-gradient-to-r from-blue-500 to-indigo-500 text-xs uppercase font-bold px-2.5 py-1 rounded-full tracking-wider shadow">Progetto Pilota EUNetCCC</span>
+                        <span class="text-slate-400">|</span>
+                        <span class="text-indigo-300 text-xs font-semibold uppercase tracking-wider">Accreditamento CraNE WP7</span>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight mt-1 bg-gradient-to-r from-white via-slate-100 to-blue-200 bg-clip-text text-transparent">Mappa Strategica delle Corrispondenze</h1>
+                    <p class="text-sm text-slate-300 mt-1">Strumento analitico e interattivo di associazione tra le 29 Milestone operative e i requisiti di certificazione europea CraNE D7.2</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchTab('matrix')" id="nav-matrix" class="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-md transition-all">Matrice Bidirezionale</button>
+                    <button onclick="switchTab('milestones')" id="nav-milestones" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all">Esplora Milestones</button>
+                    <button onclick="switchTab('requirements')" id="nav-requirements" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all">Esplora Requisiti D7.2</button>
+                    <button onclick="switchTab('analytics')" id="nav-analytics" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all">Analisi di Copertura</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenuto Principale -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- INTRODUZIONE METODOLOGICA -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm mb-8">
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Inquadramento Metodologico dell'Allineamento Strategico
+            </h2>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                Il progetto pilota <strong>EUNetCCC (Romagna Pilot IRST-AUSL)</strong> è articolato su <strong>7 dimensioni di lavoro</strong> che coprono gli aspetti fondamentali dell'integrazione e del potenziamento della rete oncologica locale. Al fine di allineare lo sforzo gestionale con gli standard del consorzio europeo <strong>CraNE D7.2 (Set of criteria and standards for EU CCCs)</strong>, è stata mappata ciascuna delle 29 milestone previste dal cronoprogramma. 
+                Questa associazione bidirezionale dimostra come le attività operative di integrazione romagnola costituiscano il veicolo pratico per raggiungere la conformità ai requisiti europei e, viceversa, come i requisiti europei offrano una solida guida di qualità per le tappe del progetto.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mt-4 pt-4 border-t border-slate-100">
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
+                    <span class="block text-xs text-slate-400 font-medium">Dimensione 1</span>
+                    <span class="text-xs font-semibold text-rose-700">Care / Clinica</span>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
+                    <span class="block text-xs text-slate-400 font-medium">Dimensione 2</span>
+                    <span class="text-xs font-semibold text-amber-700">Governance</span>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
+                    <span class="block text-xs text-slate-400 font-medium">Dimensione 3</span>
+                    <span class="text-xs font-semibold text-blue-700">Research</span>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
+                    <span class="block text-xs text-slate-400 font-medium">Dimensione 4</span>
+                    <span class="text-xs font-semibold text-indigo-700">Int. Care/Res</span>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
+                    <span class="block text-xs text-slate-400 font-medium">Dimensione 5</span>
+                    <span class="text-xs font-semibold text-purple-700">Innovation</span>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
+                    <span class="block text-xs text-slate-400 font-medium">Dimensione 6</span>
+                    <span class="text-xs font-semibold text-emerald-700">Prevention</span>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
+                    <span class="block text-xs text-slate-400 font-medium">Dimensione 7</span>
+                    <span class="text-xs font-semibold text-teal-700">Edu & Training</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEZIONE TAB 1: MATRICE BIDIREZIONALE -->
+        <div id="tab-matrix-content" class="tab-content">
+            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+                <div class="p-5 border-b border-slate-200 bg-slate-50/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Matrice Interattiva di Associazione</h3>
+                        <p class="text-xs text-slate-500">Mappa visiva complessiva. Le celle colorate indicano un'associazione attiva. Clicca su una cella attiva per leggere il dettaglio della sinergia.</p>
+                    </div>
+                    <div class="flex items-center gap-4 text-xs">
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-indigo-100 border border-indigo-300 rounded"></span> Associazione Presente</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-slate-100 border border-slate-200 rounded"></span> Nessuna Relazione</span>
+                    </div>
+                </div>
+
+                <!-- Tabella Matrice -->
+                <div class="overflow-x-auto custom-scrollbar">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-[10px] font-bold text-slate-600 uppercase tracking-wider border-b border-slate-200">
+                                <th class="p-4 min-w-[280px] sticky left-0 bg-slate-100 z-10 border-r border-slate-200 shadow-[2px_0_5px_rgba(0,0,0,0.02)]">Milestone Operativa EUNetCCC</th>
+                                <th class="p-4 text-center min-w-[100px] border-r border-slate-150">Tema 1<br><span class="text-[9px] text-slate-500 capitalize">Governance</span></th>
+                                <th class="p-4 text-center min-w-[100px] border-r border-slate-150">Tema 2<br><span class="text-[9px] text-slate-500 capitalize">Research</span></th>
+                                <th class="p-4 text-center min-w-[100px] border-r border-slate-150">Tema 3<br><span class="text-[9px] text-slate-500 capitalize">Int. Cura/Ric</span></th>
+                                <th class="p-4 text-center min-w-[100px] border-r border-slate-150">Tema 4<br><span class="text-[9px] text-slate-500 capitalize">Innovation</span></th>
+                                <th class="p-4 text-center min-w-[100px] border-r border-slate-150">Tema 5<br><span class="text-[9px] text-slate-500 capitalize">Prevention</span></th>
+                                <th class="p-4 text-center min-w-[100px]">Tema 6<br><span class="text-[9px] text-slate-500 capitalize">Education</span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="matrix-tbody" class="divide-y divide-slate-150 text-xs">
+                            <!-- Popolato dinamicamente da JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Box Spiegazione Associazione (Dinamico) -->
+            <div id="mapping-detail-box" class="mt-6 bg-indigo-50 border border-indigo-100 rounded-xl p-5 hidden animate-fadeIn">
+                <div class="flex items-start gap-4">
+                    <div class="bg-indigo-600 text-white rounded-lg p-2.5 text-xs font-bold shrink-0">Sinergia</div>
+                    <div class="flex-grow">
+                        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-indigo-100 pb-2 mb-2">
+                            <span class="font-bold text-indigo-950 text-sm" id="detail-milestone-title">M1: ...</span>
+                            <span class="font-semibold text-indigo-700 text-xs" id="detail-requirement-title">REQUISITO: ...</span>
+                        </div>
+                        <p class="text-xs text-indigo-900 leading-relaxed" id="detail-mapping-text">
+                            Seleziona una cella colorata nella matrice soprastante per visualizzare l'approfondimento della corrispondenza strategica.
+                        </p>
+                    </div>
+                    <button onclick="document.getElementById('mapping-detail-box').classList.add('hidden')" class="text-indigo-400 hover:text-indigo-600 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEZIONE TAB 2: ESPLORA MILESTONES (Milestone-Centric) -->
+        <div id="tab-milestones-content" class="tab-content hidden">
+            <!-- Pannello Filtri -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row gap-4 items-center justify-between">
+                <div class="w-full md:w-1/3 relative">
+                    <input type="text" id="ms-search" oninput="filterMilestones()" placeholder="Cerca milestone per descrizione, codice o proprietario..." 
+                           class="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                    <span class="absolute left-3 top-2.5 text-slate-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </span>
+                </div>
+                <div class="w-full md:w-2/3 flex flex-wrap gap-2 justify-end">
+                    <select id="ms-filter-dimension" onchange="filterMilestones()" class="px-3 py-2 border border-slate-200 rounded-lg text-xs bg-white text-slate-600">
+                        <option value="all">Tutte le Dimensioni</option>
+                        <option value="Care">Care / Clinica</option>
+                        <option value="Governance">Governance</option>
+                        <option value="Research">Research</option>
+                        <option value="Integration Care and Research">Int. Cura e Ricerca</option>
+                        <option value="Innovation">Innovation</option>
+                        <option value="Prevention">Prevention</option>
+                        <option value="Education and training">Education & Training</option>
+                    </select>
+                    <select id="ms-filter-owner" onchange="filterMilestones()" class="px-3 py-2 border border-slate-200 rounded-lg text-xs bg-white text-slate-600">
+                        <option value="all">Tutti i Responsabili</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Lista Milestones -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="milestones-list-container">
+                <!-- Popolato da JS -->
+            </div>
+        </div>
+
+        <!-- SEZIONE TAB 3: ESPLORA REQUISITI D7.2 (Requirement-Centric) -->
+        <div id="tab-requirements-content" class="tab-content hidden">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm mb-6">
+                <h3 class="text-base font-bold text-slate-900">Standard di Certificazione Europea CraNE (D7.2 WP7)</h3>
+                <p class="text-xs text-slate-500 mt-1">
+                    Naviga i requisiti formali definiti dal modello CraNE per accreditare una struttura come Comprehensive Cancer Centre nell'Unione Europea. Clicca sui temi per visualizzare le milestone del progetto pilota romagnolo che ne supportano direttamente la conformità.
+                </p>
+            </div>
+
+            <!-- Lista dei Temi e dei Requisiti -->
+            <div class="space-y-6" id="requirements-themes-container">
+                <!-- Popolato da JS -->
+            </div>
+        </div>
+
+        <!-- SEZIONE TAB 4: ANALISI DI COPERTURA & STATISTICHE -->
+        <div id="tab-analytics-content" class="tab-content hidden">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Card KPI 1 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-slate-400 font-medium">Totale Milestone operative</span>
+                        <h4 class="text-3xl font-extrabold text-slate-900 mt-1" id="kpi-total-ms">29</h4>
+                        <span class="text-[10px] text-indigo-600 font-semibold mt-1 block">In 7 gruppi di lavoro / dimensioni</span>
+                    </div>
+                    <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    </div>
+                </div>
+                <!-- Card KPI 2 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-slate-400 font-medium">Standard CraNE Mappati</span>
+                        <h4 class="text-3xl font-extrabold text-clinical-teal mt-1" id="kpi-mapped-req">27 / 28</h4>
+                        <span class="text-[10px] text-clinical-teal font-semibold mt-1 block">96.4% di copertura dei requisiti</span>
+                    </div>
+                    <div class="p-3 bg-teal-50 text-clinical-teal rounded-xl">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                </div>
+                <!-- Card KPI 3 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-slate-400 font-medium">Densità di Associazione</span>
+                        <h4 class="text-3xl font-extrabold text-amber-600 mt-1">1.9</h4>
+                        <span class="text-[10px] text-amber-600 font-semibold mt-1 block">Milestone medie a supporto per standard</span>
+                    </div>
+                    <div class="p-3 bg-amber-50 text-amber-600 rounded-xl">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grafici di Distribuzione -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Grafico Milestone per Dimensione -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+                    <h3 class="text-sm font-bold text-slate-900 mb-4">Milestones Operative per Dimensione di Progetto</h3>
+                    <div class="space-y-3" id="chart-ms-dimension">
+                        <!-- Popolato dinamicamente -->
+                    </div>
+                </div>
+
+                <!-- Grafico Copertura per Tema CraNE -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+                    <h3 class="text-sm font-bold text-slate-900 mb-4">Livello di Presidio / Copertura dei Requisiti CraNE D7.2</h3>
+                    <div class="space-y-3" id="chart-req-coverage">
+                        <!-- Popolato dinamicamente -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Report Esportabile -->
+            <div class="mt-8 bg-slate-900 text-white rounded-2xl p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-base font-bold">Documento di Sintesi di Allineamento (Report per Auditor)</h3>
+                    <p class="text-xs text-slate-400 mt-1">Genera un documento integrato e ottimizzato per la stampa, che elenca sistematicamente le conformità per ciascun capitolo CraNE.</p>
+                </div>
+                <button onclick="window.print()" class="px-5 py-2.5 bg-white text-slate-900 hover:bg-slate-100 font-semibold text-xs rounded-xl shadow-md flex items-center gap-2 transition-all shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    Stampa Mappatura Completa
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 text-xs text-slate-400 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+                <p>EUNetCCC Network Integration - Pilota AUSL Romagna & IRST</p>
+                <p class="mt-0.5 text-[11px] text-slate-400">Allineamento metodologico basato sul Report Finale di CraNE Joint Action (Co-funded by the EU) - Deliverable 7.2</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span>Versione 1.0 (Giugno 2026)</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGICA DI BUSINESS IN JAVASCRIPT -->
+    <script>
+        // DATASET 1: Le 29 Milestones definite nel file sheet
+        const milestones = [
+            { id: "M1", dimension: "Governance", name: "Lettera d'Intenti Governance Pilota firmata", owner: "Marchesi", month: "mar 2026", desc: "Sottoscrizione formale dell'accordo bilaterale tra AUSL Romagna e IRST IRCCS per definire le fondamenta giuridiche, il comitato di pilotaggio e le responsabilità gestionali della rete romagnola.", reqs: ["GOV-1", "GOV-3"] },
+            { id: "M2", dimension: "Education and training", name: "Rapporto annuale sulla formazione validato dai pazienti", owner: "Bugani", month: "mar 2026", desc: "Redazione di un consuntivo formativo integrato di rete sottoposto alla revisione del comitato consultivo dei pazienti (patient advisory group) per validarne la comprensibilità ed efficacia.", reqs: ["GOV-4", "EDU-3"] },
+            { id: "M3", dimension: "Governance", name: "Completamento e integrazione Gruppi di Lavoro Pilota", owner: "Genovese", month: "mag 2026", desc: "Insediamento formale dei comitati operativi trans-istituzionali per ciascuna delle sette dimensioni, garantendo pari rappresentanza e processi condivisi.", reqs: ["GOV-1", "GOV-3", "IRC-3"] },
+            { id: "M4", dimension: "Education and training", name: "Lancio programma formativo per il cambiamento organizzativo", owner: "Bugani", month: "giu 2026", desc: "Attivazione di un corso di change-management e cultura di rete rivolto al personale medico, infermieristico e amministrativo per favorire l'integrazione di area vasta.", reqs: ["EDU-1", "EDU-2", "IRC-3"] },
+            { id: "M5", dimension: "Care", name: "Report di attività dei Gruppi Multidisciplinari (MTD) finalizzato", owner: "Tamberi", month: "lug 2026", desc: "Mappatura approfondita delle attività cliniche dei team multidisciplinari per patologia con l'identificazione e standardizzazione dei relativi KPI di processo.", reqs: ["IRC-2", "GOV-6"] },
+            { id: "M6", dimension: "Governance", name: "Bozza della Strategia di Ricerca (Research Strategy) redatta", owner: "Tamberi/Nanni", month: "lug 2026", desc: "Documento strategico che delinea le linee di ricerca prioritarie di rete, le sinergie tra i laboratori IRST e l'attività clinica dell'AUSL, e i meccanismi di coordinamento scientifico.", reqs: ["RES-3", "GOV-2"] },
+            { id: "M7", dimension: "Governance", name: "Bozza della Strategia Oncologica Comprensiva (Comprehensive Cancer Strategy) redatta", owner: "Tamberi/Nanni", month: "lug 2026", desc: "Piano strategico pluriennale del CCCRN che unisce le politiche di prevenzione, la presa in carico clinica, lo sviluppo scientifico e il trasferimento tecnologico.", reqs: ["GOV-2", "GOV-5"] },
+            { id: "M8", dimension: "Prevention", name: "Studio fattibilità integrazione Registro Tumori ed epidemiologia", owner: "Gaggeri", month: "ago 2026", desc: "Analisi di interoperabilità tecnica, sicurezza e data governance tra il Registro Tumori Romagna e i flussi clinici ospedalieri per facilitare la sorveglianza attiva.", reqs: ["PREV-2", "IRC-5"] },
+            { id: "M9", dimension: "Innovation", name: "Linee guida per trasferimento tecnologico e IP approvate", owner: "Battistelli", month: "set 2026", desc: "Definizione formale del modello operativo condiviso di Technology Transfer per tutelare i brevetti e valorizzare le invenzioni del personale medico e scientifico del network.", reqs: ["INN-1", "INN-2"] },
+            { id: "M10", dimension: "Care", name: "Dataset comune (Core Dataset) per registri clinici e di ricerca definito", owner: "Tamberi", month: "set 2026", desc: "Accordo sulle variabili minime clinico-scientifiche da strutturare in modo uniforme in tutte le unità operative oncologiche romagnole.", reqs: ["IRC-5", "IRC-2"] },
+            { id: "M11", dimension: "Research", name: "Accordo condivisione dati di ricerca e Comitato Etico coordinato", owner: "Mariotti", month: "ago 2026", desc: "Strutturazione di percorsi burocratici semplificati e pre-approvati per facilitare l'attivazione di trial clinici spontanei congiunti.", reqs: ["RES-4", "IRC-5"] },
+            { id: "M12", dimension: "Research", name: "Piano riorganizzazione Clinical Trials Center (CTC) approvato", owner: "Zingaretti", month: "ago 2026", desc: "Standardizzazione del personale di ricerca (study coordinator, data manager) e accentramento delle procedure di pre-screening per elevare l'eccellenza e l'attrattività dei trial.", reqs: ["RES-2", "RES-4"] },
+            { id: "M13", dimension: "Prevention", name: "Piano Congiunto di Prevenzione Oncologica redatto", owner: "Vespignani", month: "set 2026", desc: "Stesura di un piano coordinato di interventi di promozione della salute, orientato ai sani stili di vita e riduzione dei fattori di rischio, integrato con il territorio.", reqs: ["PREV-1", "PREV-4"] },
+            { id: "M14", dimension: "Research", name: "Accordo standardizzazione biobanche e patologia molecolare", owner: "Mariotti", month: "ott 2026", desc: "Formalizzazione di protocolli condivisi per la raccolta, conservazione e caratterizzazione dei campioni tessutali biologici a supporto di trial clinico-traslazionali.", reqs: ["IRC-4", "RES-2"] },
+            { id: "M15", dimension: "Education and training", name: "Core Curriculum formativo per i professionisti del CCCRN definito", owner: "Bugani", month: "ott 2026", desc: "Definizione degli standard formativi interdisciplinari richiesti a tutto lo staff medico, infermieristico e tecnico operante nei percorsi oncologici della rete.", reqs: ["EDU-1", "EDU-2"] },
+            { id: "M16", dimension: "Research", name: "Criteri selezione bando interno progetti Ricerca Traslazionale approvati", owner: "Mariotti", month: "ott 2026", desc: "Predisposizione di una griglia di valutazione scientifica meritocratica per co-finanziare progetti di ricerca 'bench-to-bedside' avviati in collaborazione.", reqs: ["RES-1", "RES-5"] },
+            { id: "M17", dimension: "Integration Care and Research", name: "Linee guida e KPI integrazione Ricerca e Cura definiti", owner: "Gentili", month: "nov 2026", desc: "Identificazione formale degli indicatori di performance atti a monitorare l'efficacia del connubio cura-ricerca (es. percentuale di pazienti in trial clinico sul totale).", reqs: ["IRC-1", "GOV-6"] },
+            { id: "M18", dimension: "Research", name: "Bozza roadmap implementazione Ricerca e piano Fundraising", owner: "Nanni/DSci", month: "nov 2026", desc: "Definizione degli obiettivi temporali di ricerca congiunta, pianificazione di bandi competitivi internazionali e coordinamento dell'attività del Grant Office.", reqs: ["RES-5", "GOV-5"] },
+            { id: "M19", dimension: "Education and training", name: "Eventi formativi congiunti su metodologia della ricerca", owner: "Tamberi", month: "dic 2026", desc: "Corsi interattivi congiunti rivolti ai clinici per perfezionare le competenze metodologiche di base ed avanzate, l'ideazione di protocolli e la GCP.", reqs: ["EDU-2", "RES-2"] },
+            { id: "M20", dimension: "Integration Care and Research", name: "Prototipo di Matching Tool percorsi clinici-trial attivi sviluppato", owner: "Vespignani", month: "gen 2027", desc: "Soluzione informatica pilota che scansiona in forma anonima e sicura i dati dei pazienti nei PDTA evidenziando possibili criteri di eleggibilità per i trial clinici attivi.", reqs: ["IRC-2", "INN-3"] },
+            { id: "M21", dimension: "Research", name: "Criteri selezione progetti ricerca clinica ed epidemiologica approvati", owner: "Gentili", month: "dic 2026", desc: "Criteri formali per definire e prioritizzare l'avvio di studi osservazionali e retrospettivi congiunti sfruttando le risorse informatiche condivise.", reqs: ["RES-3", "PREV-3"] },
+            { id: "M22", dimension: "Prevention", name: "Programmi congiunti Prevenzione Primaria e screening armonizzati", owner: "Ravaioli", month: "nov 2026", desc: "Accordo tra oncologia di rete e dipartimenti di Sanità Pubblica per armonizzare la comunicazione e ottimizzare l'adesione agli screening organizzati regionali.", reqs: ["PREV-1", "PREV-2"] },
+            { id: "M23", dimension: "Prevention", name: "Linee guida integrazione rete prevenzione e medicina territoriale", owner: "Ravaioli", month: "gen 2027", desc: "Accordo operativo con i Medici di Medicina Generale e la medicina di prossimità per l'identificazione precoce dei pazienti ad alto rischio eredo-familiare.", reqs: ["PREV-2", "PREV-4"] },
+            { id: "M24", dimension: "Innovation", name: "Strategia di gestione e valorizzazione Proprietà Intellettuale definita", owner: "Battistelli", month: "nov 2026", desc: "Quadro contrattuale che regola la co-titolarità dei diritti di IP, i contratti di riservatezza, e la spartizione delle royalty derivanti da ricerche brevettabili.", reqs: ["INN-1", "INN-4"] },
+            { id: "M25", dimension: "Care", name: "Lancio operativo del Molecular Tumor Board (MTB) di Area Vasta", owner: "Tamberi", month: "feb 2027", desc: "Avvio delle sedute formali regolari di deliberazione per l'impiego di farmaci off-label o l'inserimento in trial clinici mirati a seguito di test di sequenziamento NGS.", reqs: ["IRC-4", "IRC-2", "INN-3"] },
+            { id: "M26", dimension: "Governance", name: "Approvazione Politica di Coinvolgimento dei Pazienti (Patient Engagement)", owner: "Ravaioli", month: "feb 2027", desc: "Emanazione di un regolamento aziendale strutturato per accogliere i rappresentanti dei pazienti all'interno degli organi programmatori e decisionali del network.", reqs: ["GOV-4", "GOV-6"] },
+            { id: "M27", dimension: "Research", name: "Linee guida coinvolgimento pazienti nella ricerca approvate", owner: "Mariotti", month: "feb 2027", desc: "Documento metodologico per favorire la partecipazione attiva dei pazienti nella definizione di priorità scientifiche, nella scrittura dei consensi informati e nei PROM.", reqs: ["RES-6", "GOV-4"] },
+            { id: "M28", dimension: "Innovation", name: "Studio fattibilità e Regolamento Spin-off drafted", owner: "Battistelli", month: "feb 2027", desc: "Definizione formale delle modalità con cui i ricercatori del network possono brevettare idee, incubare start-up e sfruttare il legame con incubatori tecnologici.", reqs: ["INN-2", "INN-4"] },
+            { id: "M29", dimension: "Education and training", name: "Definizione del Piano Formativo ed Educativo finale integrato", owner: "Bugani", month: "set 2026", desc: "Consolidamento e fusione finale dei bisogni e delle proposte educative raccolti da tutti i tavoli operativi in un piano annuale coordinato.", reqs: ["EDU-1", "EDU-2"] }
+        ];
+
+        // DATASET 2: Requisiti e Standard del documento CraNE D7.2
+        const requirements = [
+            {
+                theme: "Governance & Management",
+                idPrefix: "GOV",
+                desc: "Il tema della governance assicura che il network sia guidato da strutture formali coordinate, supportate da un chiaro disegno strategico e con un focus sul miglioramento continuo della qualità e sul coinvolgimento del paziente.",
+                standards: [
+                    { id: "GOV-1", name: "Governance Integrata e Status Legale", desc: "Struttura di governance unificata con un chiaro inquadramento legale/operativo concordato tra gli istituti partecipanti." },
+                    { id: "GOV-2", name: "Strategia Oncologica Comprensiva", desc: "Piano oncologico strategico pluriennale scritto e formalizzato, allineato alle indicazioni europee (EU Beating Cancer Plan)." },
+                    { id: "GOV-3", name: "Team di Leadership e Organizzazione di Rete", desc: "Comitato esecutivo multidisciplinare designato, con ruoli organizzativi integrati per gestire le attività quotidiane della rete." },
+                    { id: "GOV-4", name: "Coinvolgimento dei Pazienti (Patient Advocacy)", desc: "Formalizzazione di percorsi strutturati di ascolto e presenza attiva dei rappresentanti dei pazienti nella governance." },
+                    { id: "GOV-5", name: "Sostenibilità Finanziaria e Allocazione Risorse", desc: "Budgeting trasparente e congiunto con analisi di allocazione delle risorse per garantire stabilità a lungo termine alle attività integrate." },
+                    { id: "GOV-6", name: "Gestione della Qualità e Miglioramento Continuo", desc: "Presenza di un sistema di miglioramento e certificazione della qualità assistenziale con l'impiego costante di KPI prestazionali." }
+                ]
+            },
+            {
+                theme: "Research",
+                idPrefix: "RES",
+                desc: "Gli standard per l'area di ricerca garantiscono lo sviluppo di programmi scientifici traslazionali d'eccellenza, un portfolio attivo di trial clinici regolati da protocolli etici trasparenti e un'infrastruttura di ricerca moderna.",
+                standards: [
+                    { id: "RES-1", name: "Ricerca Traslazionale ed Eccellenza Scientifica", desc: "Pianificazione e conduzione di progetti che collegano in modo diretto i risultati di laboratorio con l'applicazione clinica sui pazienti." },
+                    { id: "RES-2", name: "Infrastrutture di Ricerca (Laboratori, CTC)", desc: "Dotazione e condivisione di infrastrutture di ricerca moderne, inclusi laboratori avanzati e un Clinical Trials Center efficiente." },
+                    { id: "RES-3", name: "Comitato Scientifico e Strategia di Ricerca", desc: "Definizione formale della politica scientifica e presenza di un organo indipendente per il peer-review delle proposte di ricerca interne." },
+                    { id: "RES-4", name: "Portfolio di Trial Clinici e Approvazioni Etiche", desc: "Gestione centralizzata e fluida dei trial clinici, supportata da una rapida sottomissione e controllo etico regolatorio." },
+                    { id: "RES-5", name: "Finanziamenti Competitivi, Grants e Pubblicazioni", desc: "Attrattività scientifica dimostrabile tramite pubblicazioni su riviste ad alto impatto e successo nell'ottenimento di bandi europei e nazionali." },
+                    { id: "RES-6", name: "Coinvolgimento dei Pazienti nella Ricerca", desc: "Linee guida attive per l'integrazione del punto di vista del paziente nel disegno dei protocolli di ricerca clinica." }
+                ]
+            },
+            {
+                theme: "Integration of Research and Care",
+                idPrefix: "IRC",
+                desc: "L'integrazione tra la pratica clinica e le attività di laboratorio rappresenta il cuore della definizione di un CCC. Questa sezione valuta come i flussi informativi e le decisioni di cura siano legate ai percorsi scientifici.",
+                standards: [
+                    { id: "IRC-1", name: "Interfaccia Strutturale e Leadership Comune Cura-Ricerca", desc: "Sinergia dimostrabile tra i primariati clinici e i laboratori di ricerca per massimizzare il travaso di scoperte scientifiche." },
+                    { id: "IRC-2", name: "Percorsi Clinico-Scientifici e Integrazione dei Trial", desc: "Integrazione dei trial clinici direttamente all'interno dei Percorsi Diagnostici Terapeutici Assistenziali (PDTA) per garantire accesso prioritario ai pazienti." },
+                    { id: "IRC-3", name: "Cultura Collaborativa e Scambio Interdisciplinare", desc: "Presenza di spazi fisici e virtuali per meeting congiunti, presentazioni scientifiche e discussione collegiale di casi." },
+                    { id: "IRC-4", name: "Standard di Biobancaggio e Patologia Molecolare Condivisa", desc: "Condivisione di protocolli di patologia molecolare digitale e standard di biobanca integrata a beneficio dei trial di precisione." },
+                    { id: "IRC-5", name: "Sistemi Informativi e Database di Rete Interoperabili", desc: "Utilizzo di database clinici e piattaforme IT interoperabili capaci di incrociare dati di degenza con quelli dei registri di ricerca." }
+                ]
+            },
+            {
+                theme: "Innovation",
+                idPrefix: "INN",
+                desc: "L'innovazione include le capacità di trasferimento tecnologico della struttura, i canali per la creazione di spin-off commerciali, l'uso di diagnostica avanzata e la stima dell'impatto economico delle tecnologie sanitarie.",
+                standards: [
+                    { id: "INN-1", name: "Trasferimento Tecnologico e Protezione della IP", desc: "Modello strutturato per la protezione brevettuale e la negoziazione attiva di licenze d'uso con partner industriali." },
+                    { id: "INN-2", name: "Supporto a Startup, Spin-off e Partnership", desc: "Regolamentazione chiara e supporto amministrativo per facilitare la nascita di spin-off accademici a partire dalla ricerca traslazionale." },
+                    { id: "INN-3", name: "Adozione Rapida di Diagnostica e Terapie Innovative", desc: "Integrazione tempestiva nella routine di test Next Generation Sequencing (NGS), strumenti di intelligenza artificiale e digital health." },
+                    { id: "INN-4", name: "Valutazione dell'Impatto Socio-Economico", desc: "Valutazione economica sistematica e Health Technology Assessment (HTA) delle innovazioni prima di introdurle nei flussi assistenziali." }
+                ]
+            },
+            {
+                theme: "Prevention",
+                idPrefix: "PREV",
+                desc: "Garantisce che il CCC non sia solo un luogo di cura ma anche un perno strategico per la prevenzione, raccordando le eccellenze specialistiche con i piani e le attività di salute pubblica territoriali.",
+                standards: [
+                    { id: "PREV-1", name: "Programmi di Prevenzione (Codice Europeo)", desc: "Campagne attive di prevenzione oncologica primaria allineate alle linee guida del Codice Europeo contro il Cancro." },
+                    { id: "PREV-2", name: "Integrazione con Registri Epidemiologici e Screening Pubblici", desc: "Raccordo consolidato con i registri dei tumori regionali e supporto attivo alle campagne istituzionali di screening oncologico." },
+                    { id: "PREV-3", name: "Ricerca Epidemiologica e Studi sui Fattori di Rischio", desc: "Conduzione di indagini scientifiche per individuare correlazioni e fattori di rischio legati al territorio e all'esposizione ambientale." },
+                    { id: "PREV-4", name: "Educazione Pubblica e Promozione della Salute", desc: "Iniziative strutturate e programmi divulgativi per innalzare l'alfabetizzazione sanitaria (health literacy) della cittadinanza." }
+                ]
+            },
+            {
+                theme: "Education & Training",
+                idPrefix: "EDU",
+                desc: "Gli standard formativi garantiscono che il personale mantenga l'eccellenza tramite formazione interdisciplinare continua, facilitando al contempo programmi di istruzione e alfabetizzazione oncologica per i pazienti.",
+                standards: [
+                    { id: "EDU-1", name: "Piani di Formazione Specialistica", desc: "Programmi educativi continui di alto profilo per oncologi, chirurghi, infermieri di ricerca e personale scientifico del network." },
+                    { id: "EDU-2", name: "Formazione Interdisciplinare e Sviluppo Continuo", desc: "Attività didattiche multi-professionali per consolidare la cultura della condivisione clinica e la conoscenza della ricerca clinica." },
+                    { id: "EDU-3", name: "Educazione, Empowerment e Literacy dei Pazienti", desc: "Iniziative didattiche specifiche per i pazienti e i caregiver volte a migliorarne la partecipazione informata al percorso di cura." },
+                    { id: "EDU-4", name: "Affiliazioni Accademiche e Percorsi Universitari", desc: "Stretti legami formativi con università e scuole di specializzazione medica per l'integrazione di studenti in tirocini clinici o dottorati." }
+                ]
+            }
+        ];
+
+        // DATABASE DELLE SINERGIE DETTAGLIATE (Spiegazione puntuale della mappatura)
+        const mappings = {
+            "M1_GOV-1": "La Lettera d'Intenti sigla l'accordo istituzionale e normativo iniziale tra IRST e AUSL, costituendo l'atto formale di governance integrata previsto dallo standard.",
+            "M1_GOV-3": "Nomina ufficialmente i componenti del Comitato di Pilotaggio, gettando le basi per l'organo direttivo integrato di area vasta.",
+            "M2_GOV-4": "Coinvolgere e validare i percorsi formativi tramite i pazienti assicura l'integrazione del patient advocacy nei processi decisionali di rete.",
+            "M2_EDU-3": "Rende trasparente il piano educativo, rendendolo comprensibile e calibrato sui bisogni d'informazione dei malati e dei loro familiari.",
+            "M3_GOV-1": "L'insediamento dei tavoli operativi congiunti traduce l'accordo politico di governance in una cooperazione amministrativa e gestionale attiva.",
+            "M3_GOV-3": "Struttura i gruppi intermedi di lavoro inter-istituzionali per gestire operativamente le diverse anime del modello di rete.",
+            "M3_IRC-3": "Costituisce la prima concreta opportunità di abbattimento dei silos istituzionali, riunendo specialisti di aziende diverse nello stesso team.",
+            "M4_EDU-1": "Forma direttamente i leader di progetto e le figure organizzative chiave, facilitando il recepimento pratico delle procedure di accreditamento.",
+            "M4_EDU-2": "Offre un percorso educativo interdisciplinare incentrato sul superamento della dicotomia organizzativa tra cura e ricerca scientifica.",
+            "M4_IRC-3": "Incentiva lo sviluppo di un linguaggio comune e di una cultura cooperativa condivisa tra il personale dell'IRST e dell'AUSL.",
+            "M5_IRC-2": "La standardizzazione dei team multidisciplinari (MTD) garantisce che i trial clinici vengano discussi sistematicamente all'interno dei percorsi clinici.",
+            "M5_GOV-6": "L'identificazione e il report dei KPI per ciascun MTD rappresenta l'architrave del sistema di monitoraggio della qualità e dell'appropriatezza clinica.",
+            "M6_RES-3": "Rappresenta il documento programmatorio pluriennale formale in cui vengono esplicitate le priorità scientifiche e la direzione della ricerca.",
+            "M6_GOV-2": "Consente l'allineamento della pianificazione scientifica del network con le priorità definite dal Piano Oncologico Nazionale ed Europeo.",
+            "M7_GOV-2": "Rappresenta lo strumento d'indirizzo strategico unificato del network in grado di connettere cura, ricerca e prevenzione in un unico disegno di business.",
+            "M7_GOV-5": "Assicura che la pianificazione strategica sia legata a stime di spesa e pianificazioni di lungo termine per renderla sostenibile e credibile.",
+            "M8_PREV-2": "Connette il patrimonio dei dati del Registro Tumori di Romagna con le cliniche, consentendo un monitoraggio epidemiologico preciso dell'area vasta.",
+            "M8_IRC-5": "Rappresenta uno studio pilota sull'interoperabilità dei sistemi e sulla gestione congiunta della privacy in oncologia.",
+            "M9_INN-1": "Fornisce i protocolli normativi per mappare e proteggere le innovazioni scientifiche e brevettuali prodotte dalle scoperte congiunte del personale.",
+            "M9_INN-2": "Fornisce i riferimenti contrattuali per gestire le intese di segretezza e i rapporti di valorizzazione economica con investitori esterni.",
+            "M10_IRC-5": "Standardizzare un dizionario dati (Core Dataset) comune è il prerequisito assoluto per creare sistemi informativi ed elettronici in grado di parlarsi.",
+            "M10_IRC-2": "Consente di correlare i dati della cartella oncologica con i flussi di arruolamento dei pazienti nelle sperimentazioni attive.",
+            "M11_RES-4": "Unificare i pareri e creare linee guida coordinate di bioetica accelera i tempi di avvio dei trial clinici, aumentando l'attrattiva della struttura.",
+            "M11_IRC-5": "Disciplina l'accordo formale sulla privacy per il trasferimento rapido dei dati clinici a fini scientifici nel rispetto del GDPR.",
+            "M12_RES-2": "Crea una segreteria e un organico di data management unificato a livello di rete, potenziando drasticamente l'efficienza dei trial oncologici.",
+            "M12_RES-4": "Permette una gestione coordinata del portfolio delle sperimentazioni cliniche attive sul territorio, evitando la duplicazione o la competizione per l'arruolamento.",
+            "M13_PREV-1": "Inquadra le iniziative locali contro il fumo, i corretti stili nutrizionali e la prevenzione ambientale sotto le linee del Codice Europeo.",
+            "M13_PREV-4": "Redige programmi di sensibilizzazione e conferenze pubbliche per accrescere la sensibilità della popolazione verso la salute.",
+            "M14_IRC-4": "Uniformare le modalità di prelievo e trattamento tessutale è l'unica via per garantire l'impiego condiviso delle biobanche romagnole in studi complessi.",
+            "M14_RES-2": "Ottimizza l'uso dei laboratori e dei sistemi biologici, creando un'infrastruttura di biobancaggio robusta ed integrata sul territorio.",
+            "M15_EDU-1": "Costituisce la base dei fabbisogni educativi congiunti, garantendo che lo staff segua percorsi educativi d'eccellenza codificati e certificabili.",
+            "M15_EDU-2": "Definisce le tappe per l'aggiornamento trans-disciplinare, integrando clinica e basi teoriche di ricerca traslazionale per tutto lo staff.",
+            "M16_RES-1": "Garantisce finanziamenti e canali preferenziali per incoraggiare progetti scientifici congiunti mirati a trasferire la scoperta di laboratorio al letto del paziente.",
+            "M16_RES-5": "Emana una competizione formale e meritocratica per assegnare finanziamenti basata sulla solidità e sulla bontà del piano scientifico.",
+            "M17_IRC-1": "Emana indicatori formali capaci di misurare stabilmente l'integrazione di rete tra assistenza oncologica territoriale e ricerca biomedica IRST.",
+            "M17_GOV-6": "Inserisce la valutazione scientifica del network nel piano generale della gestione della qualità organizzativa aziendale.",
+            "M18_RES-5": "Pianifica a tavolino la partecipazione a grant europei per finanziare i team di ricerca congiunti, favorendo un afflusso costante di finanziamenti esterni.",
+            "M18_GOV-5": "Diversifica le entrate finanziarie della rete per assicurarne la stabilità e la sostenibilità economica futura rispetto ai bilanci ordinari.",
+            "M19_EDU-2": "Fornisce formazione multi-professionale focalizzata sul saper fare ricerca clinica per infermieri, specialisti medici e biologi del network.",
+            "M19_RES-2": "Innalza il livello tecnico e professionale dello staff impiegato all'interno delle infrastrutture e delle segreterie scientifiche della rete.",
+            "M20_IRC-2": "Garantisce a ogni paziente inserito nei PDTA un monitoraggio in tempo reale della possibilità di accedere alle migliori terapie sperimentali.",
+            "M20_INN-3": "Rappresenta una soluzione di digital-health pionieristica volta a integrare la tecnologia informatica di precisione all'interno della clinica quotidiana.",
+            "M21_RES-3": "Crea una metodologia scientifica trasparente guidata da esperti indipendenti per dare priorità strategica alle sperimentazioni epidemiologiche.",
+            "M21_PREV-3": "Orienta gli studi osservazionali romagnoli verso l'analisi dei trend di sopravvivenza ed esposizione locale a tutela della salute pubblica.",
+            "M22_PREV-1": "Armonizza e coordina la diffusione del Codice Europeo sul territorio, unificando i linguaggi di prevenzione nei vari ospedali romagnoli.",
+            "M22_PREV-2": "Garantisce l'avvio coordinato e il massiccio supporto logistico e comunicativo ai programmi di screening regionali attivi.",
+            "M23_PREV-2": "Raccorda i percorsi territoriali e la medicina generale con i programmi di prevenzione istituzionale dei registri tumori e della sanità pubblica.",
+            "M23_PREV-4": "Sviluppa e mette a sistema materiale d'informazione scientifica erogato nei distretti sanitari per favorire la prevenzione di prossimità.",
+            "M24_INN-1": "Struttura formalmente un regolamento di tutela e ripartizione dei diritti di IP nati nell'attività clinico-ricerca congiunta IRST-AUSL.",
+            "M24_INN-4": "Permette di valutare anticipatamente gli scenari di mercato e l'impatto economico dell'eventuale adozione commerciale della tecnologia sviluppata.",
+            "M25_IRC-4": "Attiva il Molecular Tumor Board, in grado di coordinare i test Next Generation Sequencing con i biologi molecolari e i clinici di rete.",
+            "M25_IRC-2": "Offre ai pazienti oncologici complessi che hanno esaurito le opzioni terapeutiche un canale strutturato di inserimento in trial personalizzati.",
+            "M25_INN-3": "Costituisce il massimo esempio di adozione di diagnostica di precisione e biologia avanzata introdotto stabilmente nel workflow della rete.",
+            "M26_GOV-4": "Costituisce il regolamento strategico per garantire la presenza fissa dei pazienti nei tavoli del comitato di rete della governance romagnola.",
+            "M26_GOV-6": "Sfrutta l'advocacy e i gruppi di ascolto per intercettare disfunzioni organizzative, migliorando continuamente la qualità percepita delle cure.",
+            "M27_RES-6": "Fornisce gli strumenti per la coprogettazione degli studi clinici in collaborazione con i pazienti oncologici, in accordo con gli standard europei.",
+            "M27_GOV-4": "Innalza il ruolo consultivo dei pazienti ad un ruolo attivo nella revisione etica e strutturale dei trial scientifici del network.",
+            "M28_INN-2": "Introduce nel network il regolamento formale per consentire ai clinici la costituzione di startup innovative brevettuali o spin-off ospedalieri.",
+            "M28_INN-4": "Mette a sistema una connessione con il sistema industriale e l'economia locale, analizzando i ritorni in termini occupazionali e sociali.",
+            "M29_EDU-1": "Definisce ufficialmente il programma didattico integrato annuale dei vari tavoli di lavoro, sottomettendolo a budget e a controllo periodico.",
+            "M29_EDU-2": "Coinvolge i dipartimenti universitari e i primari oncologici nella stesura di percorsi formativi trasversali d'area vasta."
+        };
+
+        // INIZIALIZZAZIONE DELLA DASHBOARD
+        window.onload = function() {
+            populateMatrix();
+            populateMilestones();
+            populateRequirements();
+            populateAnalytics();
+            populateOwnerFilter();
+        };
+
+        // NAVIGAZIONE TRA TAB
+        function switchTab(tabId) {
+            // Nascondi tutti i contenuti
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            // Mostra quello selezionato
+            document.getElementById(`tab-${tabId}-content`).classList.remove('hidden');
+
+            // Reset classi pulsanti di navigazione
+            const tabs = ['matrix', 'milestones', 'requirements', 'analytics'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`nav-${t}`);
+                if (t === tabId) {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-md transition-all";
+                } else {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all";
+                }
+            });
+        }
+
+        // GENERAZIONE MATRICE
+        function populateMatrix() {
+            const tbody = document.getElementById('matrix-tbody');
+            tbody.innerHTML = '';
+
+            milestones.forEach(ms => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors";
+
+                // Colonna Milestone
+                const tdMs = document.createElement('td');
+                tdMs.className = "p-4 font-semibold text-slate-900 sticky left-0 bg-white hover:bg-slate-50 transition-colors border-r border-slate-200 shadow-[2px_0_5px_rgba(0,0,0,0.015)]";
+                
+                // Colore del badge in base alla dimensione
+                let badgeColor = "bg-slate-100 text-slate-700";
+                if (ms.dimension === "Care") badgeColor = "bg-rose-50 text-rose-700 border-rose-200 border";
+                if (ms.dimension === "Governance") badgeColor = "bg-amber-50 text-amber-700 border-amber-200 border";
+                if (ms.dimension === "Research") badgeColor = "bg-blue-50 text-blue-700 border-blue-200 border";
+                if (ms.dimension === "Integration Care and Research") badgeColor = "bg-indigo-50 text-indigo-700 border-indigo-200 border";
+                if (ms.dimension === "Innovation") badgeColor = "bg-purple-50 text-purple-700 border-purple-200 border";
+                if (ms.dimension === "Prevention") badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200 border";
+                if (ms.dimension === "Education and training") badgeColor = "bg-teal-50 text-teal-700 border-teal-200 border";
+
+                tdMs.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <span class="font-mono text-xs font-bold text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">${ms.id}</span>
+                        <div>
+                            <span class="block text-xs text-slate-800 leading-tight">${ms.name}</span>
+                            <span class="inline-block text-[9px] font-bold px-1.5 py-0.2 rounded-full mt-1 ${badgeColor}">${ms.dimension}</span>
+                        </div>
+                    </div>
+                `;
+                tr.appendChild(tdMs);
+
+                // Colonne per i 6 Temi CraNE
+                const themes = ["GOV", "RES", "IRC", "INN", "PREV", "EDU"];
+                themes.forEach(theme => {
+                    const tdCell = document.createElement('td');
+                    tdCell.className = "p-4 text-center border-r border-slate-100";
+
+                    // Cerca se esiste una mappatura per questo tema
+                    const hasMapping = ms.reqs.some(reqId => reqId.startsWith(theme));
+
+                    if (hasMapping) {
+                        // Trova i requisiti mappati all'interno di questo tema
+                        const mappedReqs = ms.reqs.filter(reqId => reqId.startsWith(theme));
+                        
+                        tdCell.innerHTML = `
+                            <button onclick="showMappingExplanation('${ms.id}', '${mappedReqs.join(', ')}')" 
+                                    class="w-8 h-8 rounded-full bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-bold border border-indigo-300 transition-all flex items-center justify-center shadow-sm mx-auto text-[10px]">
+                                ${mappedReqs.length}
+                            </button>
+                        `;
+                    } else {
+                        tdCell.innerHTML = `<span class="text-slate-200 font-mono">-</span>`;
+                    }
+                    tr.appendChild(tdCell);
+                });
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        // MOSTRA SPIEGAZIONE SUL CLICK DELLA MATRICE
+        function showMappingExplanation(msId, reqIdsStr) {
+            const box = document.getElementById('mapping-detail-box');
+            const msTitle = document.getElementById('detail-milestone-title');
+            const reqTitle = document.getElementById('detail-requirement-title');
+            const text = document.getElementById('detail-mapping-text');
+
+            const ms = milestones.find(m => m.id === msId);
+            const reqIds = reqIdsStr.split(', ');
+            
+            msTitle.innerText = `${ms.id}: ${ms.name} (${ms.owner})`;
+            reqTitle.innerText = `REQUISITI SUPPORTATI: ${reqIdsStr}`;
+
+            let explanationHTML = "";
+            reqIds.forEach(reqId => {
+                // Trova la definizione dello standard
+                let stdName = "";
+                requirements.forEach(th => {
+                    const found = th.standards.find(s => s.id === reqId);
+                    if (found) stdName = found.name;
+                });
+
+                const mapKey = `${msId}_${reqId}`;
+                const expText = mappings[mapKey] || "Relazione e sinergia strategica identificata nel piano di allineamento del network.";
+
+                explanationHTML += `
+                    <div class="mb-3 last:mb-0 pb-3 last:pb-0 last:border-0 border-b border-indigo-100/50">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-indigo-600 text-white font-mono font-extrabold text-[9px] px-1.5 py-0.5 rounded">${reqId}</span>
+                            <span class="font-bold text-xs text-indigo-950">${stdName}</span>
+                        </div>
+                        <p class="text-xs text-indigo-900 leading-relaxed italic pl-4 border-l-2 border-indigo-300">"${expText}"</p>
+                    </div>
+                `;
+            });
+
+            text.innerHTML = explanationHTML;
+            box.classList.remove('hidden');
+            box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // POPOLA FILTRO RESPONSABILI
+        function populateOwnerFilter() {
+            const select = document.getElementById('ms-filter-owner');
+            const owners = [...new Set(milestones.map(ms => ms.owner))].sort();
+            
+            owners.forEach(ow => {
+                const opt = document.createElement('option');
+                opt.value = ow;
+                opt.innerText = ow;
+                select.appendChild(opt);
+            });
+        }
+
+        // VISUALIZZA LISTA MILESTONES (TAB 2)
+        function populateMilestones() {
+            const container = document.getElementById('milestones-list-container');
+            container.innerHTML = '';
+
+            milestones.forEach(ms => {
+                const card = document.createElement('div');
+                card.id = `ms-card-${ms.id}`;
+                card.className = "bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-all relative overflow-hidden";
+
+                // Colore del bordo sinistro basato sulla dimensione
+                let borderColor = "border-l-4 border-l-slate-400";
+                let badgeColor = "bg-slate-100 text-slate-700";
+                if (ms.dimension === "Care") { borderColor = "border-l-4 border-l-rose-500"; badgeColor = "bg-rose-50 text-rose-700 border-rose-150 border"; }
+                if (ms.dimension === "Governance") { borderColor = "border-l-4 border-l-amber-500"; badgeColor = "bg-amber-50 text-amber-700 border-amber-150 border"; }
+                if (ms.dimension === "Research") { borderColor = "border-l-4 border-l-blue-500"; badgeColor = "bg-blue-50 text-blue-700 border-blue-150 border"; }
+                if (ms.dimension === "Integration Care and Research") { borderColor = "border-l-4 border-l-indigo-500"; badgeColor = "bg-indigo-50 text-indigo-700 border-indigo-150 border"; }
+                if (ms.dimension === "Innovation") { borderColor = "border-l-4 border-l-purple-500"; badgeColor = "bg-purple-50 text-purple-700 border-purple-150 border"; }
+                if (ms.dimension === "Prevention") { borderColor = "border-l-4 border-l-emerald-500"; badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-150 border"; }
+                if (ms.dimension === "Education and training") { borderColor = "border-l-4 border-l-teal-500"; badgeColor = "bg-teal-50 text-teal-700 border-teal-150 border"; }
+
+                // Genera lista dei requisiti supportati
+                let reqBadgesHTML = "";
+                ms.reqs.forEach(reqId => {
+                    reqBadgesHTML += `
+                        <span class="inline-flex items-center gap-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] font-bold px-2 py-0.5 rounded-lg border border-slate-200 shadow-sm transition-colors">
+                            <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+                            ${reqId}
+                        </span>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="${borderColor} pl-4">
+                        <div class="flex items-start justify-between gap-2">
+                            <div>
+                                <span class="font-mono text-[10px] font-bold text-slate-400 bg-slate-50 border px-1.5 py-0.5 rounded">${ms.id}</span>
+                                <h4 class="text-sm font-bold text-slate-900 mt-1">${ms.name}</h4>
+                            </div>
+                            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full uppercase shrink-0 ${badgeColor}">${ms.dimension}</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">${ms.desc}</p>
+                        
+                        <!-- Metadata -->
+                        <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+                            <div><span class="font-medium text-slate-500">Proprietario:</span> ${ms.owner}</div>
+                            <div><span class="font-medium text-slate-500">Mese Target:</span> ${ms.month}</div>
+                        </div>
+                    </div>
+
+                    <!-- Requisiti CraNE collegati -->
+                    <div class="mt-4 pt-3 border-t border-slate-100">
+                        <span class="text-[10px] font-bold text-slate-400 block uppercase mb-1.5 tracking-wider">Requisiti di Accreditamento CraNE Supportati</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            ${reqBadgesHTML}
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // FILTRA LE MILESTONES (TAB 2)
+        function filterMilestones() {
+            const search = document.getElementById('ms-search').value.toLowerCase();
+            const dimension = document.getElementById('ms-filter-dimension').value;
+            const owner = document.getElementById('ms-filter-owner').value;
+
+            milestones.forEach(ms => {
+                const card = document.getElementById(`ms-card-${ms.id}`);
+                const matchSearch = ms.name.toLowerCase().includes(search) || 
+                                      ms.id.toLowerCase().includes(search) || 
+                                      ms.desc.toLowerCase().includes(search) || 
+                                      ms.owner.toLowerCase().includes(search);
+                const matchDimension = dimension === "all" || ms.dimension === dimension;
+                const matchOwner = owner === "all" || ms.owner === owner;
+
+                if (matchSearch && matchDimension && matchOwner) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // VISUALIZZA REQUISITI CRANE (TAB 3)
+        function populateRequirements() {
+            const container = document.getElementById('requirements-themes-container');
+            container.innerHTML = '';
+
+            requirements.forEach((theme, index) => {
+                const themeBlock = document.createElement('div');
+                themeBlock.className = "bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden";
+
+                // Calcola colore distintivo del Tema
+                let themeBg = "bg-slate-900";
+                let themeBorder = "border-l-4 border-l-slate-700";
+                if (theme.idPrefix === "GOV") { themeBg = "bg-amber-900"; themeBorder = "border-l-4 border-l-amber-500"; }
+                if (theme.idPrefix === "RES") { themeBg = "bg-blue-900"; themeBorder = "border-l-4 border-l-blue-500"; }
+                if (theme.idPrefix === "IRC") { themeBg = "bg-indigo-900"; themeBorder = "border-l-4 border-l-indigo-500"; }
+                if (theme.idPrefix === "INN") { themeBg = "bg-purple-900"; themeBorder = "border-l-4 border-l-purple-500"; }
+                if (theme.idPrefix === "PREV") { themeBg = "bg-emerald-900"; themeBorder = "border-l-4 border-l-emerald-500"; }
+                if (theme.idPrefix === "EDU") { themeBg = "bg-teal-900"; themeBorder = "border-l-4 border-l-teal-500"; }
+
+                // Genera HTML per ogni standard specifico del tema
+                let standardsHTML = "";
+                theme.standards.forEach(std => {
+                    // Trova quali milestones supportano questo standard
+                    const supportingMs = milestones.filter(ms => ms.reqs.includes(std.id));
+                    
+                    let msListHTML = "";
+                    if (supportingMs.length > 0) {
+                        supportingMs.forEach(ms => {
+                            const mapKey = `${ms.id}_${std.id}`;
+                            const detailedExplanation = mappings[mapKey] || "Associazione metodologica e sinergia operativa.";
+
+                            msListHTML += `
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-150 text-xs shadow-sm">
+                                    <div class="flex items-center justify-between gap-2 border-b border-slate-200/50 pb-1.5 mb-1.5">
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="font-mono font-bold text-[10px] text-slate-500 bg-white border px-1.5 py-0.5 rounded">${ms.id}</span>
+                                            <span class="font-bold text-slate-800 text-[11px]">${ms.name}</span>
+                                        </div>
+                                        <span class="text-[9px] text-slate-400">${ms.owner} | ${ms.month}</span>
+                                    </div>
+                                    <p class="text-slate-600 text-[11px] leading-relaxed italic">"${detailedExplanation}"</p>
+                                </div>
+                            `;
+                        });
+                    } else {
+                        msListHTML = `
+                            <p class="text-xs text-rose-500 font-medium italic flex items-center gap-1.5 bg-rose-50 border border-rose-100 p-2.5 rounded-lg">
+                                <span class="w-1.5 h-1.5 bg-rose-500 rounded-full"></span>
+                                Nessuna milestone operativa mappata direttamente. Presidio basato sulle normali attività cliniche.
+                            </p>
+                        `;
+                    }
+
+                    standardsHTML += `
+                        <div class="border border-slate-100 rounded-xl overflow-hidden shadow-sm">
+                            <button onclick="toggleAccordion('std-collapse-${std.id}')" 
+                                    class="w-full text-left p-4 bg-slate-50/50 hover:bg-slate-50 transition-colors flex items-center justify-between gap-4">
+                                <div class="flex items-start gap-3">
+                                    <span class="font-mono font-extrabold text-xs text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded shadow-sm shrink-0 mt-0.5">${std.id}</span>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-slate-900">${std.name}</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">${std.desc}</p>
+                                    </div>
+                                </div>
+                                <span class="text-indigo-500 shrink-0">
+                                    <svg class="w-4 h-4 transform transition-transform" id="arrow-std-collapse-${std.id}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </button>
+                            <div id="std-collapse-${std.id}" class="hidden p-4 bg-white border-t border-slate-100 space-y-3">
+                                <span class="text-[9px] font-bold text-slate-400 block uppercase tracking-wider">Milestones del Progetto Pilota Romagna che Presidiano lo Standard</span>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    ${msListHTML}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                themeBlock.innerHTML = `
+                    <!-- Header Tema -->
+                    <div class="${themeBg} text-white p-5">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl opacity-80 font-bold font-mono">T${index+1}</span>
+                            <div>
+                                <h3 class="text-base font-extrabold tracking-tight">Tema ${index+1}: ${theme.theme}</h3>
+                                <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">${theme.desc}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contenuto Standard -->
+                    <div class="p-5 space-y-4">
+                        ${standardsHTML}
+                    </div>
+                `;
+
+                container.appendChild(themeBlock);
+            });
+        }
+
+        // LOGICA ACCORDION
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            const arrow = document.getElementById(`arrow-${id}`);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                el.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+
+        // GENERAZIONE ANALISI DI COPERTURA (TAB 4)
+        function populateAnalytics() {
+            // 1. Calcola Milestones per Dimensione
+            const chartDim = document.getElementById('chart-ms-dimension');
+            chartDim.innerHTML = '';
+            
+            const dimensions = [
+                { name: "Care / Clinica", val: "Care", color: "bg-rose-500" },
+                { name: "Governance", val: "Governance", color: "bg-amber-500" },
+                { name: "Research", val: "Research", color: "bg-blue-500" },
+                { name: "Integrazione Cura/Ricerca", val: "Integration Care and Research", color: "bg-indigo-500" },
+                { name: "Innovation", val: "Innovation", color: "bg-purple-500" },
+                { name: "Prevention", val: "Prevention", color: "bg-emerald-500" },
+                { name: "Education & Training", val: "Education and training", color: "bg-teal-500" }
+            ];
+
+            const totalMs = milestones.length;
+
+            dimensions.forEach(dim => {
+                const count = milestones.filter(ms => ms.dimension === dim.val).length;
+                const percentage = ((count / totalMs) * 100).toFixed(1);
+
+                chartDim.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span class="text-slate-700">${dim.name}</span>
+                            <span class="text-slate-500">${count} milestone (${percentage}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                            <div class="${dim.color} h-full rounded-full" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // 2. Calcola Copertura Requisiti CraNE per Tema
+            const chartReq = document.getElementById('chart-req-coverage');
+            chartReq.innerHTML = '';
+
+            const themes = [
+                { prefix: "GOV", name: "Tema 1: Governance & Management", color: "bg-amber-500" },
+                { prefix: "RES", name: "Tema 2: Research", color: "bg-blue-500" },
+                { prefix: "IRC", name: "Tema 3: Integration of Research & Care", color: "bg-indigo-500" },
+                { prefix: "INN", name: "Tema 4: Innovation", color: "bg-purple-500" },
+                { prefix: "PREV", name: "Tema 5: Prevention", color: "bg-emerald-500" },
+                { prefix: "EDU", name: "Tema 6: Education & Training", color: "bg-teal-500" }
+            ];
+
+            // Raggruppa tutti i requisiti uniti dalle milestones
+            const allMappedReqs = new Set();
+            milestones.forEach(ms => {
+                ms.reqs.forEach(r => allMappedReqs.add(r));
+            });
+
+            themes.forEach(th => {
+                // Trova quanti requisiti specifici ci sono per questo tema
+                const themeData = requirements.find(r => r.idPrefix === th.prefix);
+                const totalReqs = themeData ? themeData.standards.length : 0;
+                
+                // Trova quanti di questi requisiti hanno almeno una milestone
+                const coveredReqs = themeData ? themeData.standards.filter(s => allMappedReqs.has(s.id)).length : 0;
+                const percentage = ((coveredReqs / totalReqs) * 100).toFixed(1);
+
+                chartReq.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span class="text-slate-700">${th.name}</span>
+                            <span class="text-slate-500">${coveredReqs} su ${totalReqs} standard coperti (${percentage}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                            <div class="${th.color} h-full rounded-full" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Aggiorna KPI di copertura totale
+            let totalStandards = 0;
+            let coveredStandards = 0;
+            requirements.forEach(theme => {
+                theme.standards.forEach(std => {
+                    totalStandards++;
+                    if (allMappedReqs.has(std.id)) {
+                        coveredStandards++;
+                    }
+                });
+            });
+
+            document.getElementById('kpi-total-ms').innerText = totalMs;
+            document.getElementById('kpi-mapped-req').innerText = `${coveredStandards} / ${totalStandards}`;
+        }
+    </script>
+
+    <!-- Foglio Stampa Ottimizzato per Esportazione PDF -->
+    <style>
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            header, footer, button, .tab-content:not(#tab-requirements-content), #tab-requirements-content > div:first-child, .bg-slate-900 {
+                display: none !important;
+            }
+            #tab-requirements-content {
+                display: block !important;
+                width: 100% !important;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .bg-white {
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .border {
+                border-color: #cbd5e1 !important;
+            }
+            .hidden {
+                display: block !important;
+            }
+            .text-white {
+                color: black !important;
+            }
+            .bg-amber-900, .bg-blue-900, .bg-indigo-900, .bg-purple-900, .bg-emerald-900, .bg-teal-900 {
+                background-color: #f8fafc !important;
+                border-bottom: 2px solid #000 !important;
+                padding: 10px 0 !important;
+            }
+            h3, h4 {
+                color: black !important;
+                page-break-after: avoid;
+            }
+            .p-5, .p-4 {
+                padding: 5px 0 !important;
+            }
+            .rounded-2xl, .rounded-xl {
+                border-radius: 0 !important;
+            }
+            div {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</body>
+</html>
