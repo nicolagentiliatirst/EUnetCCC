@@ -85,10 +85,13 @@
                 Inquadramento Metodologico dell'Allineamento Strategico
             </h2>
             <p class="text-sm text-slate-600 mt-2 leading-relaxed">
-                Il progetto pilota <strong>EUNetCCC (Romagna Pilot IRST-AUSL)</strong> è articolato su <strong>7 dimensioni di lavoro</strong> che coprono gli aspetti fondamentali dell'integrazione e del potenziamento della rete oncologica locale. Al fine di allineare lo sforzo gestionale con gli standard del consorzio europeo <strong>CraNE D7.2 (Set of criteria and standards for EU CCCs)</strong>, è stata mappata ciascuna delle 29 milestone previste dal cronoprogramma. 
+                Il progetto pilota <strong>EUNetCCC (Romagna Pilot IRST-AUSL)</strong> è articolato su <strong>6 dimensioni di lavoro attive</strong> che coprono gli aspetti fondamentali dell'integrazione e del potenziamento della rete oncologica locale. Al fine di allineare lo sforzo gestionale con gli standard del consorzio europeo <strong>CraNE D7.2 (Set of criteria and standards for EU CCCs)</strong>, è stata mappata ciascuna delle 29 milestone previste dal cronoprogramma. 
                 Questa associazione bidirezionale dimostra come le attività operative di integrazione romagnola costituiscano il veicolo pratico per raggiungere la conformità ai requisiti europei e, viceversa, come i requisiti europei offrano una solida guida di qualità per le tappe del progetto.
             </p>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mt-4 pt-4 border-t border-slate-100">
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5 mt-3 text-xs text-amber-950">
+                <strong>Nota di Analisi sulla Prevenzione (Dimension 6):</strong> Nel cronoprogramma operativo del pilota, le attività di prevenzione primaria e secondaria non sono presidiate da milestone esplicite ma sono integrate nei processi istituzionali sanitari locali e regionali già esistenti. Di conseguenza, il Tema 5 (Prevention) di CraNE riflette questa caratteristica organizzativa mostrando una copertura da mappare sui canali ordinari aziendali.
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-4 pt-4 border-t border-slate-100">
                 <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
                     <span class="block text-xs text-slate-400 font-medium">Dimensione 1</span>
                     <span class="text-xs font-semibold text-rose-700">Care / Clinica</span>
@@ -108,10 +111,6 @@
                 <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
                     <span class="block text-xs text-slate-400 font-medium">Dimensione 5</span>
                     <span class="text-xs font-semibold text-purple-700">Innovation</span>
-                </div>
-                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
-                    <span class="block text-xs text-slate-400 font-medium">Dimensione 6</span>
-                    <span class="text-xs font-semibold text-emerald-700">Prevention</span>
                 </div>
                 <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
                     <span class="block text-xs text-slate-400 font-medium">Dimensione 7</span>
@@ -194,7 +193,6 @@
                         <option value="Research">Research</option>
                         <option value="Integration Care and Research">Int. Cura e Ricerca</option>
                         <option value="Innovation">Innovation</option>
-                        <option value="Prevention">Prevention</option>
                         <option value="Education and training">Education & Training</option>
                     </select>
                     <select id="ms-filter-owner" onchange="filterMilestones()" class="px-3 py-2 border border-slate-200 rounded-lg text-xs bg-white text-slate-600">
@@ -232,7 +230,7 @@
                     <div>
                         <span class="text-xs text-slate-400 font-medium">Totale Milestone operative</span>
                         <h4 class="text-3xl font-extrabold text-slate-900 mt-1" id="kpi-total-ms">29</h4>
-                        <span class="text-[10px] text-indigo-600 font-semibold mt-1 block">In 7 gruppi di lavoro / dimensioni</span>
+                        <span class="text-[10px] text-indigo-600 font-semibold mt-1 block">In 6 gruppi di lavoro / dimensioni attive</span>
                     </div>
                     <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
@@ -242,8 +240,8 @@
                 <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
                     <div>
                         <span class="text-xs text-slate-400 font-medium">Standard CraNE Mappati</span>
-                        <h4 class="text-3xl font-extrabold text-clinical-teal mt-1" id="kpi-mapped-req">27 / 28</h4>
-                        <span class="text-[10px] text-clinical-teal font-semibold mt-1 block">96.4% di copertura dei requisiti</span>
+                        <h4 class="text-3xl font-extrabold text-clinical-teal mt-1" id="kpi-mapped-req">24 / 28</h4>
+                        <span class="text-[10px] text-clinical-teal font-semibold mt-1 block" id="kpi-mapped-percentage">85.7% di copertura dei requisiti</span>
                     </div>
                     <div class="p-3 bg-teal-50 text-clinical-teal rounded-xl">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -253,7 +251,7 @@
                 <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
                     <div>
                         <span class="text-xs text-slate-400 font-medium">Densità di Associazione</span>
-                        <h4 class="text-3xl font-extrabold text-amber-600 mt-1">1.9</h4>
+                        <h4 class="text-3xl font-extrabold text-amber-600 mt-1" id="kpi-density">1.9</h4>
                         <span class="text-[10px] text-amber-600 font-semibold mt-1 block">Milestone medie a supporto per standard</span>
                     </div>
                     <div class="p-3 bg-amber-50 text-amber-600 rounded-xl">
@@ -304,44 +302,44 @@
                 <p class="mt-0.5 text-[11px] text-slate-400">Allineamento metodologico basato sul Report Finale di CraNE Joint Action (Co-funded by the EU) - Deliverable 7.2</p>
             </div>
             <div class="flex items-center gap-4">
-                <span>Versione 1.0 (Giugno 2026)</span>
+                <span>Versione 1.1 (Giugno 2026)</span>
             </div>
         </div>
     </footer>
 
     <!-- LOGICA DI BUSINESS IN JAVASCRIPT -->
     <script>
-        // DATASET 1: Le 29 Milestones definite nel file sheet con i loro NOMI ORIGINALI IN INGLESE
+        // DATASET 1: Le 29 Milestones corrette e aggiornate dal piano di progetto ufficiale in inglese
         const milestones = [
             { id: "M1", dimension: "Governance", name: "Pilot Governance Letter of Intent signed", owner: "Marchesi", month: "mar 2026", desc: "Sottoscrizione formale dell'accordo bilaterale tra AUSL Romagna e IRST IRCCS per definire le fondamenta giuridiche, il comitato di pilotaggio e le responsabilità gestionali della rete romagnola.", reqs: ["GOV-1", "GOV-3"] },
             { id: "M2", dimension: "Education and training", name: "Patient-validated annual education report", owner: "Bugani", month: "mar 2026", desc: "Redazione di un consuntivo formativo integrato di rete sottoposto alla revisione del comitato consultivo dei pazienti (patient advisory group) per validarne la comprensibilità ed efficacia.", reqs: ["GOV-4", "EDU-3"] },
-            { id: "M3", dimension: "Governance", name: "IRST-AUSL Pilot Working Groups (WG) completed and integrated", owner: "Genovese", month: "mag 2026", desc: "Insediamento formale dei comitati operativi trans-istituzionali per ciascuna delle sette dimensioni, garantendo pari rappresentanza e processi condivisi.", reqs: ["GOV-1", "GOV-3", "IRC-3"] },
+            { id: "M3", dimension: "Governance", name: "IRST-AUSL Pilot Working Groups (WG) completed and integrated", owner: "Genovese", month: "mag 2026", desc: "Insediamento formale dei comitati operativi trans-istituzionali per ciascuna delle dimensioni di lavoro attiva, garantendo pari rappresentanza e processi condivisi.", reqs: ["GOV-1", "GOV-3", "IRC-3"] },
             { id: "M4", dimension: "Education and training", name: "Launch of a joint training program to support organizational change and integration within the CCCRN", owner: "Bugani", month: "giu 2026", desc: "Attivazione di un corso di change-management e cultura di rete rivolto al personale medico, infermieristico e amministrativo per favorire l'integrazione di area vasta.", reqs: ["EDU-1", "EDU-2", "IRC-3"] },
             { id: "M5", dimension: "Care", name: "MTD activity report with selected KPIs finalized", owner: "Tamberi", month: "lug 2026", desc: "Mappatura approfondita delle attività cliniche dei team multidisciplinari per patologia con l'identificazione e standardizzazione dei relativi KPI di processo.", reqs: ["IRC-2", "GOV-6"] },
             { id: "M6", dimension: "Governance", name: "Research Strategy document drafted", owner: "Tamberi/Nanni", month: "lug 2026", desc: "Documento strategico che delinea le linee di ricerca prioritarie di rete, le sinergie tra i laboratori IRST e l'attività clinica dell'AUSL, e i meccanismi di coordinamento scientifico.", reqs: ["RES-3", "GOV-2"] },
-            { id: "M7", dimension: "Governance", name: "Comprehensive Cancer Strategy document drafted", owner: "Tamberi/Nanni", month: "lug 2026", desc: "Piano strategico pluriennale del CCCRN che unisce le politiche di prevenzione, la presa in carico clinica, lo sviluppo scientifico e il trasferimento tecnologico.", reqs: ["GOV-2", "GOV-5"] },
-            { id: "M8", dimension: "Prevention", name: "Feasibility study for Cancer Registry and Epidemiology integration drafted", owner: "Gaggeri", month: "ago 2026", desc: "Analisi di interoperabilità tecnica, sicurezza e data governance tra il Registro Tumori Romagna e i flussi clinici ospedalieri per facilitare la sorveglianza attiva.", reqs: ["PREV-2", "IRC-5"] },
-            { id: "M9", dimension: "Innovation", name: "TTO and IP joint guidelines drafted", owner: "Battistelli", month: "set 2026", desc: "Definizione formale del modello operativo condiviso di Technology Transfer per tutelare i brevetti e valorizzare le invenzioni del personale medico e scientifico del network.", reqs: ["INN-1", "INN-2"] },
-            { id: "M10", dimension: "Care", name: "Common Core Dataset for clinical and research registries defined", owner: "Tamberi", month: "set 2026", desc: "Accordo sulle variabili minime clinico-scientifiche da strutturare in modo uniforme in tutte le unità operative oncologiche romagnole.", reqs: ["IRC-5", "IRC-2"] },
-            { id: "M11", dimension: "Research", name: "Research Data Sharing agreement and coordinated Ethical Committee approach drafted", owner: "Mariotti", month: "ago 2026", desc: "Strutturazione di percorsi burocratici semplificati e pre-approvati per facilitare l'attivazione di trial clinici spontanei congiunti.", reqs: ["RES-4", "IRC-5"] },
-            { id: "M12", dimension: "Research", name: "Reorganisation plan of the Clinical Trials Center (CTC) approved", owner: "Zingaretti", month: "ago 2026", desc: "Standardizzazione del personale di ricerca (study coordinator, data manager) e accentramento delle procedure di pre-screening per elevare l'eccellenza e l'attrattività dei trial.", reqs: ["RES-2", "RES-4"] },
-            { id: "M13", dimension: "Prevention", name: "Joint Oncology Prevention Plan drafted", owner: "Vespignani", month: "set 2026", desc: "Stesura di un piano coordinato di interventi di promozione della salute, orientato ai sani stili di vita e riduzione dei fattori di rischio, integrato con il territorio.", reqs: ["PREV-1", "PREV-4"] },
-            { id: "M14", dimension: "Research", name: "Standardisation agreement on biobanking and molecular pathology drafted", owner: "Mariotti", month: "ott 2026", desc: "Formalizzazione di protocolli condivisi per la raccolta, conservazione e caratterizzazione dei campioni tessutali biologici a supporto di trial clinico-traslazionali.", reqs: ["IRC-4", "RES-2"] },
-            { id: "M15", dimension: "Education and training", name: "Definition of the Core Curriculum for CCCRN professionals", owner: "Bugani", month: "ott 2026", desc: "Definizione degli standard formativi interdisciplinari richiesti a tutto lo staff medico, infermieristico e tecnico operante nei percorsi oncologici della rete.", reqs: ["EDU-1", "EDU-2"] },
-            { id: "M16", dimension: "Research", name: "Selection criteria for the internal call of translational research projects approved", owner: "Mariotti", month: "ott 2026", desc: "Predisposizione di una griglia di valutazione scientifica meritocratica per co-finanziare progetti di ricerca 'bench-to-bedside' avviati in collaborazione.", reqs: ["RES-1", "RES-5"] },
-            { id: "M17", dimension: "Integration Care and Research", name: "Guidelines and KPIs for integration of Research and Care defined", owner: "Gentili", month: "nov 2026", desc: "Identificazione formale degli indicatori di performance atti a monitorare l'efficacia del connubio cura-ricerca (es. percentuale di pazienti in trial clinico sul totale).", reqs: ["IRC-1", "GOV-6"] },
-            { id: "M18", dimension: "Research", name: "Research implementation roadmap and fundraising plan drafted", owner: "Nanni/DSci", month: "nov 2026", desc: "Definizione degli obiettivi temporali di ricerca congiunta, pianificazione di bandi competitivi internazionali e coordinamento dell'attività del Grant Office.", reqs: ["RES-5", "GOV-5"] },
-            { id: "M19", dimension: "Education and training", name: "Joint training events on research methodology", owner: "Tamberi", month: "dic 2026", desc: "Corsi interattivi congiunti rivolti ai clinici per perfezionare le competenze metodologiche di base ed avanzate, l'ideazione di protocolli e la GCP.", reqs: ["EDU-2", "RES-2"] },
-            { id: "M20", dimension: "Integration Care and Research", name: "Pilot matching tool between clinical pathways and active clinical trials developed", owner: "Vespignani", month: "gen 2027", desc: "Soluzione informatica pilota che scansiona in forma anonima e sicura i dati dei pazienti nei PDTA evidenziando possibili criteri di eleggibilità per i trial clinici attivi.", reqs: ["IRC-2", "INN-3"] },
-            { id: "M21", dimension: "Research", name: "Selection criteria for joint clinical and epidemiological research projects approved", owner: "Gentili", month: "dic 2026", desc: "Criteri formali per definire e prioritizzare l'avvio di studi osservazionali e retrospettivi congiunti sfruttando le risorse informatiche condivise.", reqs: ["RES-3", "PREV-3"] },
-            { id: "M22", dimension: "Prevention", name: "Joint primary prevention programs and screening activities harmonised", owner: "Ravaioli", month: "nov 2026", desc: "Accordo tra oncologia di rete e dipartimenti di Sanità Pubblica per armonizzare la comunicazione e ottimizzare l'adesione agli screening organizzati regionali.", reqs: ["PREV-1", "PREV-2"] },
-            { id: "M23", dimension: "Prevention", name: "Guidelines for integration of the prevention network with primary care drafted", owner: "Ravaioli", month: "gen 2027", desc: "Accordo operativo con i Medici di Medicina Generale e la medicina di prossimità per l'identificazione precoce dei pazienti ad alto rischio eredo-familiare.", reqs: ["PREV-2", "PREV-4"] },
-            { id: "M24", dimension: "Innovation", name: "Strategy for intellectual property management and exploitation defined", owner: "Battistelli", month: "nov 2026", desc: "Quadro contrattuale che regola la co-titolarità dei diritti di IP, i contratti di riservatezza, e la spartizione delle royalty derivanti da ricerche brevettabili.", reqs: ["INN-1", "INN-4"] },
-            { id: "M25", dimension: "Care", name: "MTB activities launched (conditional to regional reorganisation)", owner: "Tamberi", month: "feb 2027", desc: "Avvio delle sedute formali regolari di deliberazione per l'impiego di farmaci off-label o l'inserimento in trial clinici mirati a seguito di test di sequenziamento NGS.", reqs: ["IRC-4", "IRC-2", "INN-3"] },
-            { id: "M26", dimension: "Governance", name: "Patient Engagement Policy approved", owner: "Ravaioli", month: "feb 2027", desc: "Emanazione di un regolamento aziendale strutturato per accogliere i rappresentanti dei pazienti all'interno degli organi programmatori e decisionali del network.", reqs: ["GOV-4", "GOV-6"] },
-            { id: "M27", dimension: "Research", name: "Research Patient Involvement guidelines approved", owner: "Mariotti", month: "feb 2027", desc: "Documento metodologico per favorire la partecipazione attiva dei pazienti nella definizione di priorità scientifiche, nella scrittura dei consensi informati e nei PROM.", reqs: ["RES-6", "GOV-4"] },
-            { id: "M28", dimension: "Innovation", name: "Feasibility analysis and Spin-off Regulations' for CCCRN drafted", owner: "Battistelli", month: "feb 2027", desc: "Definizione formale delle modalità con cui i ricercatori del network possono brevettare idee, incubare start-up e sfruttare il legame con incubatori tecnologici.", reqs: ["INN-2", "INN-4"] },
-            { id: "M29", dimension: "Education and training", name: "Collection of content inputs from other workstreams and definition of the Education and Training Plan", owner: "Bugani", month: "set 2026", desc: "Consolidamento e fusione finale dei bisogni e delle proposte educative raccolti da tutti i tavoli operativi in un piano annuale coordinato.", reqs: ["EDU-1", "EDU-2"] }
+            { id: "M7", dimension: "Governance", name: "Comprehensive Cancer Strategy document drafted", owner: "Tamberi/Nanni", month: "lug 2026", desc: "Piano strategico pluriennale del CCCRN che unisce le politiche strutturali, la presa in carico clinica, lo sviluppo scientifico e il trasferimento tecnologico.", reqs: ["GOV-2", "GOV-5"] },
+            { id: "M8", dimension: "Research", name: "Biobank Scientific-Legal WG established", owner: "Zingaretti", month: "ago 2026", desc: "Istituzione del gruppo di lavoro per stabilire le linee guida scientifico-legali ed etiche relative al biobancaggio e all'utilizzo dei campioni biologici nel network.", reqs: ["IRC-4", "RES-2"] },
+            { id: "M9", dimension: "Research", name: "State-of-the-art assessment on Research Digital Infrastructure completed", owner: "Gaggeri", month: "ago 2026", desc: "Mappatura dello stato dell'arte e analisi dei gap relativi all'infrastruttura digitale di ricerca e all'interoperabilità dei sistemi e database scientifici del network.", reqs: ["IRC-5", "RES-2"] },
+            { id: "M10", dimension: "Research", name: "CCM evaluation of Research Strategy preliminary document", owner: "Ravaioli", month: "set 2026", desc: "Valutazione e validazione scientifica del documento preliminare di strategia di ricerca da parte del comitato di coordinamento congiunto (CCM).", reqs: ["RES-3", "RES-5"] },
+            { id: "M11", dimension: "Integration Care and Research", name: "Digital Infrastructure for Care and Research roadmap defined", owner: "Vespignani", month: "set 2026", desc: "Definizione della roadmap per l'integrazione e lo sviluppo coordinato delle infrastrutture informatiche a supporto sia dell'assistenza clinica che dell'attività scientifica.", reqs: ["IRC-5", "INN-3"] },
+            { id: "M12", dimension: "Innovation", name: "Innovation scouting meeting calendar with research groups defined", owner: "Battistelli", month: "set 2026", desc: "Pianificazione sistematica di incontri con i gruppi di ricerca clinico-sperimentali per identificare e mappare le tecnologie e i progetti ad alto potenziale di innovazione e trasferimento tecnologico.", reqs: ["INN-1", "INN-2"] },
+            { id: "M13", dimension: "Research", name: "Start of the Integrated IRST-AUSL research framework for competitive research", owner: "Mariotti", month: "ott 2026", desc: "Avvio del framework comune integrato per coordinare la partecipazione a bandi di ricerca competitivi nazionali, europei ed internazionali.", reqs: ["RES-1", "RES-5"] },
+            { id: "M14", dimension: "Education and training", name: "Patient representative appointed to ECM Committee", owner: "Ravaioli", month: "ott 2026", desc: "Nomina formale del rappresentante dei pazienti all'interno del comitato per l'Educazione Continua in Medicina (ECM) per integrare i loro bisogni formativi.", reqs: ["GOV-4", "EDU-3"] },
+            { id: "M15", dimension: "Care", name: "Inter-hospital MTD coordinators re-appointed", owner: "Tamberi", month: "nov 2026", desc: "Rinnovo e formalizzazione degli incarichi dei coordinatori dei gruppi multidisciplinari inter-ospedalieri di area vasta.", reqs: ["GOV-3", "IRC-2"] },
+            { id: "M16", dimension: "Research", name: "IRST/AUSL skills-gap training program defined", owner: "Mariotti", month: "nov 2026", desc: "Definizione del piano formativo finalizzato a colmare i gap di competenze professionali e tecniche identificate tra il personale clinico e di ricerca delle due strutture.", reqs: ["EDU-1", "RES-2"] },
+            { id: "M17", dimension: "Research", name: "Patient involvement in research training program defined", owner: "Mariotti", month: "nov 2026", desc: "Definizione del piano formativo specifico per promuovere e strutturare il coinvolgimento attivo dei pazienti nel disegno e conduzione dei progetti di ricerca scientifica.", reqs: ["RES-6", "EDU-3"] },
+            { id: "M18", dimension: "Integration Care and Research", name: "Definition of training program for research findings dissemination among clinical staff", owner: "Massa", month: "nov 2026", desc: "Definizione di un piano formativo per i clinici mirato alla divulgazione rapida e sistematica dei risultati e delle evidenze generate dalla ricerca del network.", reqs: ["IRC-3", "EDU-2"] },
+            { id: "M19", dimension: "Governance", name: "Final Research Strategy document approved", owner: "Nanni/DSci", month: "dic 2026", desc: "Approvazione del documento finale della strategia di ricerca scientifica integrata da parte della direzione generale e scientifica.", reqs: ["RES-3", "GOV-2"] },
+            { id: "M20", dimension: "Education and training", name: "Final version of Annual Education and Training Plan (EUNetCCC section) defined", owner: "Bugani", month: "dic 2026", desc: "Definizione formale della sezione dedicata alle attività integrate EUNetCCC all'interno del piano annuale di formazione ed educazione clinica.", reqs: ["EDU-1", "EDU-2"] },
+            { id: "M21", dimension: "Research", name: "Joint Research Integrity & Open Science WG established", owner: "Gentili", month: "dic 2026", desc: "Costituzione del gruppo di lavoro congiunto per la definizione di linee guida sull'integrità scientifica, l'etica della ricerca e la compliance dell'Open Science.", reqs: ["RES-3", "RES-4"] },
+            { id: "M22", dimension: "Innovation", name: "Training program for Research Valorization & Tech-Transfer defined", owner: "Battistelli", month: "nov 2026", desc: "Definizione del programma formativo rivolto a ricercatori e clinici riguardante la tutela della proprietà intellettuale e i percorsi di technology transfer.", reqs: ["INN-1", "EDU-2"] },
+            { id: "M23", dimension: "Innovation", name: "CCCRN TT asset analysis report published", owner: "Battistelli", month: "gen 2027", desc: "Pubblicazione del report di analisi sugli asset di ricerca traducibili in brevetti, startup o collaborazioni industriali a livello di rete.", reqs: ["INN-1", "INN-4"] },
+            { id: "M24", dimension: "Education and training", name: "Document on the extension of the Integrated Skills System to the CCCRN drafted", owner: "Bugani", month: "gen 2027", desc: "Redazione della proposta metodologica per estendere lo Skills System integrato delle competenze oncologiche a tutto il personale della rete del CCCRN.", reqs: ["EDU-1", "EDU-4"] },
+            { id: "M25", dimension: "Care", name: "MTB activities launched (conditional to regional reorganisation)", owner: "Tamberi", month: "feb 2027", desc: "Lancio formale delle sedute cliniche regolari del Molecular Tumor Board per l'analisi dei dati di sequenziamento e l'indicazione di terapie mirate.", reqs: ["IRC-4", "IRC-2", "INN-3"] },
+            { id: "M26", dimension: "Governance", name: "Patient Engagement Policy approved", owner: "Ravaioli", month: "feb 2027", desc: "Approvazione del regolamento e delle linee d'indirizzo per il coinvolgimento strutturato dei pazienti negli organi decisionali e programmatori del network.", reqs: ["GOV-4", "GOV-6"] },
+            { id: "M27", dimension: "Research", name: "Research Patient Involvement guidelines approved", owner: "Mariotti", month: "feb 2027", desc: "Approvazione formale delle linee guida per coinvolgere i pazienti e i loro rappresentanti nella definizione e validazione dei protocolli di ricerca scientifica.", reqs: ["RES-6", "GOV-4"] },
+            { id: "M28", dimension: "Innovation", name: "Feasibility analysis and Spin-off Regulations' for CCCRN drafted", owner: "Battistelli", month: "feb 2027", desc: "Studio di fattibilità e stesura del regolamento comune per disciplinare l'incubazione di startup oncologiche e la costituzione di spin-off della ricerca.", reqs: ["INN-2", "INN-4"] },
+            { id: "M29", dimension: "Education and training", name: "Collection of content inputs from other workstreams and definition of the Education and Training Plan", owner: "Bugani", month: "set 2026", desc: "Sintesi e integrazione di tutti i contributi formativi provenienti dalle altre dimensioni di lavoro per la redazione del piano formativo finale congiunto.", reqs: ["EDU-1", "EDU-2"] }
         ];
 
         // DATASET 2: Requisiti e Standard del documento CraNE D7.2 in INGLESE ORIGINALE
@@ -423,65 +421,65 @@
         const mappings = {
             "M1_GOV-1": "La Lettera d'Intenti sigla l'accordo istituzionale e normativo iniziale tra IRST e AUSL, costituendo l'atto formale di governance integrata previsto dallo standard.",
             "M1_GOV-3": "Nomina ufficialmente i componenti del Comitato di Pilotaggio, gettando le basi per l'organo direttivo integrato di area vasta.",
-            "M2_GOV-4": "Coinvolgere e validare i percorsi formativi tramite i pazienti assicura l'integrazione del patient advocacy nei processi decisionali di rete.",
-            "M2_EDU-3": "Rende trasparente il piano educativo, rendendolo comprensibile e calibrato sui bisogni d'informazione dei malati e dei loro familiari.",
-            "M3_GOV-1": "L'insediamento dei tavoli operativi congiunti traduce l'accordo politico di governance in una cooperazione amministrativa e gestionale attiva.",
-            "M3_GOV-3": "Struttura i gruppi intermedi di lavoro inter-istituzionali per gestire operativamente le diverse anime del modello di rete.",
-            "M3_IRC-3": "Costituisce la prima concreta opportunità di abbattimento dei silos istituzionali, riunendo specialisti di aziende diverse nello stesso team.",
-            "M4_EDU-1": "Forma direttamente i leader di progetto e le figure organizzative chiave, facilitando il recepimento pratico delle procedure di accreditamento.",
-            "M4_EDU-2": "Offre un percorso educativo interdisciplinare incentrato sul superamento della dicotomia organizzativa tra cura e ricerca scientifica.",
-            "M4_IRC-3": "Incentiva lo sviluppo di un linguaggio comune e di una cultura cooperativa condivisa tra il personale dell'IRST e dell'AUSL.",
-            "M5_IRC-2": "La standardizzazione dei team multidisciplinari (MTD) garantisce che i trial clinici vengano discussi sistematicamente all'interno dei percorsi clinici.",
-            "M5_GOV-6": "L'identificazione e il report dei KPI per ciascun MTD rappresenta l'architrave del sistema di monitoraggio della qualità e dell'appropriatezza clinica.",
-            "M6_RES-3": "Rappresenta il documento programmatorio pluriennale formale in cui vengono esplicitate le priorità scientifiche e la direzione della ricerca.",
-            "M6_GOV-2": "Consente l'allineamento della pianificazione scientifica del network con le priorità definite dal Piano Oncologico Nazionale ed Europeo.",
-            "M7_GOV-2": "Rappresenta lo strumento d'indirizzo strategico unificato del network in grado di connettere cura, ricerca e prevenzione in un unico disegno di business.",
-            "M7_GOV-5": "Assicura che la pianificazione strategica sia legata a stime di spesa e pianificazioni di lungo termine per renderla sostenibile e credibile.",
-            "M8_PREV-2": "Connette il patrimonio dei dati del Registro Tumori di Romagna con le cliniche, consentendo un monitoraggio epidemiologico preciso dell'area vasta.",
-            "M8_IRC-5": "Rappresenta uno studio pilota sull'interoperabilità dei sistemi e sulla gestione congiunta della privacy in oncologia.",
-            "M9_INN-1": "Fornisce i protocolli normativi per mappare e proteggere le innovazioni scientifiche e brevettuali prodotte dalle scoperte congiunte del personale.",
-            "M9_INN-2": "Fornisce i riferimenti contrattuali per gestire le intese di segretezza e i rapporti di valorizzazione economica con investitori esterni.",
-            "M10_IRC-5": "Standardizzare un dizionario dati (Core Dataset) comune è il prerequisito assoluto per creare sistemi informativi ed elettronici in grado di parlarsi.",
-            "M10_IRC-2": "Consente di correlare i dati della cartella oncologica con i flussi di arruolamento dei pazienti nelle sperimentazioni attive.",
-            "M11_RES-4": "Unificare i pareri e creare linee guida coordinate di bioetica accelera i tempi di avvio dei trial clinici, aumentando l'attrattiva della struttura.",
-            "M11_IRC-5": "Disciplina l'accordo formale sulla privacy per il trasferimento rapido dei dati clinici a fini scientifici nel rispetto del GDPR.",
-            "M12_RES-2": "Crea una segreteria e un organico di data management unificato a livello di rete, potenziando drasticamente l'efficienza dei trial oncologici.",
-            "M12_RES-4": "Permette una gestione coordinata del portfolio delle sperimentazioni cliniche attive sul territorio, evitando la duplicazione o la competizione per l'arruolamento.",
-            "M13_PREV-1": "Inquadra le iniziative locali contro il fumo, i corretti stili nutrizionali e la prevenzione ambientale sotto le linee del Codice Europeo.",
-            "M13_PREV-4": "Redige programmi di sensibilizzazione e conferenze pubbliche per accrescere la sensibilità della popolazione verso la salute.",
-            "M14_IRC-4": "Uniformare le modalità di prelievo e trattamento tessutale è l'unica via per garantire l'impiego condiviso delle biobanche romagnole in studi complessi.",
-            "M14_RES-2": "Ottimizza l'uso dei laboratori e dei sistemi biologici, creando un'infrastruttura di biobancaggio robusta ed integrata sul territorio.",
-            "M15_EDU-1": "Costituisce la base dei fabbisogni educativi congiunti, garantendo che lo staff segua percorsi educativi d'eccellenza codificati e certificabili.",
-            "M15_EDU-2": "Definisce le tappe per l'aggiornamento trans-disciplinare, integrando clinica e basi teoriche di ricerca traslazionale per tutto lo staff.",
-            "M16_RES-1": "Garantisce finanziamenti e canali preferenziali per incoraggiare progetti scientifici congiunti mirati a trasferire la scoperta di laboratorio al letto del paziente.",
-            "M16_RES-5": "Emana una competizione formale e meritocratica per assegnare finanziamenti basata sulla solidità e sulla bontà del piano scientifico.",
-            "M17_IRC-1": "Emana indicatori formali capaci di misurare stabilmente l'integrazione di rete tra assistenza oncologica territoriale e ricerca biomedica IRST.",
-            "M17_GOV-6": "Inserisce la valutazione scientifica del network nel piano generale della gestione della qualità organizzativa aziendale.",
-            "M18_RES-5": "Pianifica a tavolino la partecipazione a grant europei per finanziare i team di ricerca congiunti, favorendo un afflusso costante di finanziamenti esterni.",
-            "M18_GOV-5": "Diversifica le entrate finanziarie della rete per assicurarne la stabilità e la sostenibilità economica futura rispetto ai bilanci ordinari.",
-            "M19_EDU-2": "Forige formazione multi-professionale focalizzata sul saper fare ricerca clinica per infermieri, specialisti medici e biologi del network.",
-            "M19_RES-2": "Innalza il livello tecnico e professionale dello staff impiegato all'interno delle infrastrutture e delle segreterie scientifiche della rete.",
-            "M20_IRC-2": "Garantisce a ogni paziente inserito nei PDTA un monitoraggio in tempo reale della possibilità di accedere alle migliori terapie sperimentali.",
-            "M20_INN-3": "Rappresenta una soluzione di digital-health pionieristica volta a integrare la tecnologia informatica di precisione all'interno della clinica quotidiana.",
-            "M21_RES-3": "Crea una metodologia scientifica trasparente guidata da esperti indipendenti per dare priorità strategica alle sperimentazioni epidemiologiche.",
-            "M21_PREV-3": "Orienta gli studi osservazionali romagnoli verso l'analisi dei trend di sopravvivenza ed esposizione locale a tutela della salute pubblica.",
-            "M22_PREV-1": "Armonizza e coordina la diffusione del Codice Europeo sul territorio, unificando i linguaggi di prevenzione nei vari ospedali romagnoli.",
-            "M22_PREV-2": "Garantisce l'avvio coordinato e il massiccio supporto logistico e comunicativo ai programmi di screening regionali attivi.",
-            "M23_PREV-2": "Raccorda i percorsi territoriali e la medicina generale con i programmi di prevenzione istituzionale dei registri tumori e della sanità pubblica.",
-            "M23_PREV-4": "Sviluppa e mette a sistema materiale d'informazione scientifica erogato nei distretti sanitari per favorire la prevenzione di prossimità.",
-            "M24_INN-1": "Struttura formalmente un regolamento di tutela e ripartizione dei diritti di IP nati nell'attività clinico-ricerca congiunta IRST-AUSL.",
-            "M24_INN-4": "Permette di valutare anticipatamente gli scenari di mercato e l'impatto economico dell'eventuale adozione commerciale della tecnologia sviluppata.",
-            "M25_IRC-4": "Attiva il Molecular Tumor Board, in grado di coordinare i test Next Generation Sequencing con i biologi molecolari e i clinici di rete.",
-            "M25_IRC-2": "Offre ai pazienti oncologici complessi che hanno esaurito le opzioni terapeutiche un canale strutturato di inserimento in trial personalizzati.",
-            "M25_INN-3": "Costituisce il massimo esempio di adozione di diagnostica di precisione e biologia avanzata introdotto stabilmente nel workflow della rete.",
-            "M26_GOV-4": "Costituisce il regolamento strategico per garantire la presenza fissa dei pazienti nei tavoli del comitato di rete della governance romagnola.",
-            "M26_GOV-6": "Sfrutta l'advocacy e i gruppi di ascolto per intercettare disfunzioni organizzative, migliorando continuamente la qualità percepita delle cure.",
-            "M27_RES-6": "Fornisce gli strumenti per la coprogettazione degli studi clinici in collaborazione con i pazienti oncologici, in accordo con gli standard europei.",
-            "M27_GOV-4": "Innalza il ruolo consultivo dei pazienti ad un ruolo attivo nella revisione etica e strutturale dei trial scientifici del network.",
-            "M28_INN-2": "Introduce nel network il regolamento formale per consentire ai clinici la costituzione di startup innovative brevettuali o spin-off ospedalieri.",
-            "M28_INN-4": "Mette a sistema una connessione con il sistema industriale e l'economia locale, analizzando i ritorni in termini occupazionali e sociali.",
-            "M29_EDU-1": "Definisce ufficialmente il programma didattico integrato annuale dei vari tavoli di lavoro, sottomettendolo a budget e a controllo periodico.",
-            "M29_EDU-2": "Coinvolge i dipartimenti universitari e i primari oncologici nella stesura di percorsi formativi trasversali d'area vasta."
+            "M2_GOV-4": "Coinvolgere e validare i report formativi tramite i pazienti assicura l'integrazione del patient advocacy nei processi di miglioramento di rete.",
+            "M2_EDU-3": "Rende trasparente il piano educativo, garantendone la comprensibilità e la rispondenza ai bisogni reali di informazione dei pazienti.",
+            "M3_GOV-1": "L'insediamento dei gruppi di lavoro congiunti traduce l'accordo di governance in una cooperazione operativa attiva fra le due istituzioni.",
+            "M3_GOV-3": "Crea i comitati operativi interdisciplinari integrati necessari per l'amministrazione e il coordinamento quotidiano del network.",
+            "M3_IRC-3": "Rappresenta una concreta opportunità di interscambio e collaborazione interprofessionale che abbatte le barriere aziendali.",
+            "M4_EDU-1": "Sviluppa e lancia percorsi formativi volti a qualificare i professionisti del CCCRN nell'ottica dell'integrazione organizzativa oncologica.",
+            "M4_EDU-2": "Promuove lo sviluppo continuo favorendo una cultura cooperativa orientata all'integrazione clinico-scientifica e organizzativa.",
+            "M4_IRC-3": "Agisce come catalizzatore per unificare la visione organizzativa tra clinici e ricercatori appartenenti alle diverse realtà della rete.",
+            "M5_IRC-2": "Il report dei gruppi multidisciplinari (MTD) assicura una gestione coordinata dei flussi dei pazienti e l'analisi dell'offerta clinica-sperimentale.",
+            "M5_GOV-6": "L'adozione di KPI per valutare l'attività degli MTD costituisce l'architrave del monitoraggio della qualità e dei processi di cura nel network.",
+            "M6_RES-3": "Definisce le priorità scientifiche e la strategia di ricerca congiunta del network per promuovere studi traslazionali ed epidemiologici.",
+            "M6_GOV-2": "Inquadra la politica scientifica del network all'interno della più ampia strategia oncologica integrata, allineandola alle direttive europee.",
+            "M7_GOV-2": "Costituisce il documento programmatorio principale che traccia gli obiettivi e le politiche strategiche a lungo termine del CCCRN.",
+            "M7_GOV-5": "Delinea i modelli di pianificazione delle risorse e la sostenibilità economica associata alle linee strategiche del piano oncologico.",
+            "M8_IRC-4": "L'istituzione del gruppo di lavoro pone le basi regolatorie e legali per l'armonizzazione e lo scambio sicuro di tessuti tra le biobanche del network.",
+            "M8_RES-2": "Rappresenta una tappa chiave nello sviluppo di infrastrutture di ricerca coordinate, uniformando la governance scientifico-legale dei campioni biologici.",
+            "M9_IRC-5": "Fornisce la mappatura dello stato dell'arte dei sistemi IT, identificando i requisiti di interoperabilità necessari all'integrazione dei dati clinici e scientifici.",
+            "M9_RES-2": "Mappa lo stato delle tecnologie digitali e computazionali a supporto dei laboratori e del Clinical Trials Center, pianificandone il potenziamento.",
+            "M10_RES-3": "Rappresenta la validazione scientifica esterna / peer-review del documento preliminare di strategia di ricerca da parte del comitato scientifico congiunto (CCM).",
+            "M10_RES-5": "Garantisce la solidità della ricerca programmata per favorire l'acquisizione di finanziamenti competitivi e la produzione scientifica del network.",
+            "M11_IRC-5": "Pianifica la roadmap tecnologica per realizzare database e piattaforme informatiche oncologiche interoperabili di area vasta.",
+            "M11_INN-3": "Identifica i tempi e i modi per integrare tecnologie digitali avanzate (es. piattaforme NGS, AI) nei flussi clinici integrati del network.",
+            "M12_INN-1": "Avvia lo screening sistematico dei progetti interni con potenzialità brevettuale o di valorizzazione della proprietà intellettuale (IP).",
+            "M12_INN-2": "Stabilisce un contatto diretto con i gruppi di ricerca per raccogliere idee e promuovere la cultura d'impresa, gli spin-off e le startup.",
+            "M13_RES-1": "Istituisce una cornice condivisa per lo sviluppo di progetti di ricerca traslazionale ed oncologia clinica d'eccellenza in modo congiunto.",
+            "M13_RES-5": "Struttura i canali e il coordinamento dei Grant Office per la candidatura congiunta a bandi di ricerca competitivi nazionali, europei ed internazionali.",
+            "M14_GOV-4": "Consolida formalmente l'advocacy inserendo stabilmente un rappresentante dei pazienti nell'organo che decide la programmazione formativa ECM di rete.",
+            "M14_EDU-3": "Garantisce che la programmazione ECM si orienti anche a sviluppare l'empowerment e l'educazione focalizzata sui reali bisogni informativi del paziente.",
+            "M15_GOV-3": "Rafforza la leadership clinica di rete formalizzando la nomina dei coordinatori dei gruppi multidisciplinari inter-aziendali oncologici.",
+            "M15_IRC-2": "Assicura che la figura del coordinatore clinico sia il garante dell'integrazione delle sperimentazioni attive nei percorsi clinici standard.",
+            "M16_EDU-1": "Definisce un programma formativo specifico per colmare i divari di competenza (skills-gap) in campo clinico, metodologico e scientifico del personale.",
+            "M16_RES-2": "Innalza la qualificazione professionale del personale addetto alla gestione dei laboratori e del Clinical Trials Center.",
+            "M17_RES-6": "Struttura percorsi formativi per preparare pazienti e ricercatori al disegno congiunto dei protocolli e alla valutazione di etica scientifica.",
+            "M17_EDU-3": "Fornisce strumenti di empowerment ai pazienti per renderli interlocutori attivi e formati nei progetti e negli studi clinici del CCCRN.",
+            "M18_IRC-3": "Facilita la diffusione sistematica dei risultati della ricerca e dei trial scientifici interni tra i medici clinici del territorio, promuovendo una cultura congiunta.",
+            "M18_EDU-2": "Sviluppa un programma formativo interdisciplinare volto a diffondere scoperte scientifiche, procedure GCP e medicina basata sull'evidenza genomica.",
+            "M19_RES-3": "Deliberazione e approvazione formale del piano scientifico e della politica di ricerca congiunta a livello direzionale.",
+            "M19_GOV-2": "Consolida la strategia di ricerca come pilastro inscindibile del piano d'azione globale di accreditamento oncologico europeo del CCCRN.",
+            "M20_EDU-1": "Formalizza la sezione formativa integrata EUNetCCC all'interno dei piani aziendali di formazione oncologica specialistica.",
+            "M20_EDU-2": "Pianifica a livello annuale i moduli didattici interdisciplinari orientati alla ricerca clinica e alla continuità assistenziale ospedale-territorio.",
+            "M21_RES-3": "Crea un gruppo di lavoro dedicato a normare e sorvegliare l'integrità scientifica, l'etica e la compliance dei progetti di ricerca della rete.",
+            "M21_RES-4": "Fornisce garanzie metodologiche sul rispetto delle politiche di open-access e di trasparenza nei flussi autorizzativi dei clinical trial.",
+            "M22_INN-1": "Promuove lo sviluppo di moduli didattici incentrati su brevetti, IP e sfruttamento industriale a favore dei ricercatori del network.",
+            "M22_EDU-2": "Introduce percorsi formativi cross-settoriali dedicati al technology transfer e all'imprenditorialità biomedica di rete.",
+            "M23_INN-1": "Redige il report di mappatura e analisi delle competenze, brevetti e asset sfruttabili, definendo la strategia di posizionamento sul mercato.",
+            "M23_INN-4": "Fornisce una prima analisi del valore potenziale e dell'impatto economico-sociale dei risultati scientifici traducibili industrialmente.",
+            "M24_EDU-1": "Disegna il modello per mappare ed estendere le competenze integrate (Skills System) a tutto l'organico di rete per armonizzare i profili professionali.",
+            "M24_EDU-4": "Connette lo Skills System con i profili didattici e i requisiti delle scuole di specializzazione medica ed oncologica universitarie affiliate.",
+            "M25_IRC-4": "Attiva le riunioni del Molecular Tumor Board per l'analisi integrata dei referti genomici NGS e l'assegnazione di target molecolari terapeutici.",
+            "M25_IRC-2": "Garantisce ai pazienti oncologici complessi una terapia personalizzata basata sull'arruolamento agevolato in trial guidati da alterazioni molecolari.",
+            "M25_INN-3": "Costituisce il massimo livello operativo di medicina di precisione e adozione di diagnostica molecolare avanzata introdotta nella routine di rete.",
+            "M26_GOV-4": "Ratifica la politica aziendale di area vasta per la rappresentanza e il coinvolgimento formale dei pazienti nella governance e pianificazione del CCCRN.",
+            "M26_GOV-6": "Sfrutta il feedback dei pazienti e dei gruppi consultivi come indicatore di qualità per definire i percorsi di miglioramento dell'assistenza.",
+            "M27_RES-6": "Adotta le linee guida formali per coinvolgere i pazienti in modo co-attivo nelle fasi di disegno degli studi e stesura del consenso informato.",
+            "M27_GOV-4": "Formalizza l'inclusione del punto di vista del paziente all'interno delle scelte scientifico-programmatorie del network oncologico.",
+            "M28_INN-2": "Regolamenta in modo univoco i requisiti per favorire e incubare la costituzione di startup e spin-off accademici/aziendali valorizzando la ricerca.",
+            "M28_INN-4": "Valuta la ricaduta socio-economica territoriale e lo sviluppo di brevetti derivanti dal nuovo ecosistema di trasferimento tecnologico.",
+            "M29_EDU-1": "Unifica tutti i fabbisogni formativi interdisciplinari raccolti dai tavoli di lavoro in un unico piano di formazione specialistica.",
+            "M29_EDU-2": "Consolida l'offerta didattica del network coordinandola sotto un unico budget e garantendo l'interdisciplinarità dei moduli erogati."
         };
 
         // INIZIALIZZAZIONE DELLA DASHBOARD
@@ -532,7 +530,6 @@
                 if (ms.dimension === "Research") badgeColor = "bg-blue-50 text-blue-700 border-blue-200 border";
                 if (ms.dimension === "Integration Care and Research") badgeColor = "bg-indigo-50 text-indigo-700 border-indigo-200 border";
                 if (ms.dimension === "Innovation") badgeColor = "bg-purple-50 text-purple-700 border-purple-200 border";
-                if (ms.dimension === "Prevention") badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200 border";
                 if (ms.dimension === "Education and training") badgeColor = "bg-teal-50 text-teal-700 border-teal-200 border";
 
                 tdMs.innerHTML = `
@@ -647,7 +644,6 @@
                 if (ms.dimension === "Research") { borderColor = "border-l-4 border-l-blue-500"; badgeColor = "bg-blue-50 text-blue-700 border-blue-150 border"; }
                 if (ms.dimension === "Integration Care and Research") { borderColor = "border-l-4 border-l-indigo-500"; badgeColor = "bg-indigo-50 text-indigo-700 border-indigo-150 border"; }
                 if (ms.dimension === "Innovation") { borderColor = "border-l-4 border-l-purple-500"; badgeColor = "bg-purple-50 text-purple-700 border-purple-150 border"; }
-                if (ms.dimension === "Prevention") { borderColor = "border-l-4 border-l-emerald-500"; badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200 border"; }
                 if (ms.dimension === "Education and training") { borderColor = "border-l-4 border-l-teal-500"; badgeColor = "bg-teal-50 text-teal-700 border-teal-150 border"; }
 
                 // Genera lista dei requisiti supportati
@@ -770,7 +766,7 @@
                         msListHTML = `
                             <p class="text-xs text-rose-500 font-medium italic flex items-center gap-1.5 bg-rose-50 border border-rose-100 p-2.5 rounded-lg w-full">
                                 <span class="w-1.5 h-1.5 bg-rose-500 rounded-full"></span>
-                                Nessuna milestone operativa mappata direttamente. Presidio basato sulle normali attività cliniche.
+                                Nessuna milestone operativa mappata direttamente. Presidio basato sulle normali attività cliniche e programmi sanitari regionali strutturati.
                             </p>
                         `;
                     }
@@ -847,7 +843,6 @@
                 { name: "Research", val: "Research", color: "bg-blue-500" },
                 { name: "Integrazione Cura/Ricerca", val: "Integration Care and Research", color: "bg-indigo-500" },
                 { name: "Innovation", val: "Innovation", color: "bg-purple-500" },
-                { name: "Prevention", val: "Prevention", color: "bg-emerald-500" },
                 { name: "Education & Training", val: "Education and training", color: "bg-teal-500" }
             ];
 
@@ -923,8 +918,15 @@
                 });
             });
 
+            const pct = ((coveredStandards / totalStandards) * 100).toFixed(1);
             document.getElementById('kpi-total-ms').innerText = totalMs;
             document.getElementById('kpi-mapped-req').innerText = `${coveredStandards} / ${totalStandards}`;
+            document.getElementById('kpi-mapped-percentage').innerText = `${pct}% di copertura dei requisiti`;
+
+            // Aggiorna densità di associazione dinamica
+            const totalMappingsCount = milestones.reduce((acc, ms) => acc + ms.reqs.length, 0);
+            const density = (totalMappingsCount / totalStandards).toFixed(1);
+            document.getElementById('kpi-density').innerText = density;
         }
     </script>
 
