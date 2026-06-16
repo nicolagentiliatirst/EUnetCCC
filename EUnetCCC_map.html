@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EUNetCCC & CraNE D7.2 - Cruscotto di Allineamento Strategico</title>
+    <title>EUNetCCC & CraNE D7.2 - Strategic Alignment Dashboard</title>
     <!-- Tailwind CSS per uno stile moderno e reattivo -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -58,18 +58,18 @@
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
                     <div class="flex items-center gap-3">
-                        <span class="bg-gradient-to-r from-blue-500 to-indigo-500 text-xs uppercase font-bold px-2.5 py-1 rounded-full tracking-wider shadow">Progetto Pilota EUNetCCC</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-indigo-500 text-xs uppercase font-bold px-2.5 py-1 rounded-full tracking-wider shadow">EUNetCCC Pilot Project: CCCRN</span>
                         <span class="text-slate-400">|</span>
-                        <span class="text-indigo-300 text-xs font-semibold uppercase tracking-wider">Accreditamento CraNE WP7</span>
+                        <span class="text-indigo-300 text-xs font-semibold uppercase tracking-wider">CraNE WP7 Accreditation</span>
                     </div>
-                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight mt-1 bg-gradient-to-r from-white via-slate-100 to-blue-200 bg-clip-text text-transparent">Mappa Strategica delle Corrispondenze</h1>
-                    <p class="text-sm text-slate-300 mt-1">Strumento analitico e interattivo di associazione tra le 29 Milestone operative e i requisiti di certificazione europea CraNE D7.2</p>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight mt-1 bg-gradient-to-r from-white via-slate-100 to-blue-200 bg-clip-text text-transparent">Strategic Mapping of Correspondences</h1>
+                    <p class="text-sm text-slate-300 mt-1">Analytical and interactive tool for mapping the 29 operational Milestones to the CraNE D7.2 European certification requirements</p>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                    <button onclick="switchTab('matrix')" id="nav-matrix" class="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-md transition-all">Matrice Bidirezionale</button>
-                    <button onclick="switchTab('milestones')" id="nav-milestones" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all">Esplora Milestones</button>
-                    <button onclick="switchTab('requirements')" id="nav-requirements" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all">Esplora Requisiti D7.2</button>
-                    <button onclick="switchTab('analytics')" id="nav-analytics" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all">Analisi di Copertura</button>
+                    <button onclick="switchTab('matrix')" id="nav-matrix" class="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-md transition-all">Bidirectional Matrix</button>
+                    <button onclick="switchTab('milestones')" id="nav-milestones" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all">Explore Milestones</button>
+                    <button onclick="switchTab('requirements')" id="nav-requirements" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all">Explore D7.2 Requrements</button>
+                    <button onclick="switchTab('analytics')" id="nav-analytics" class="px-4 py-2 text-xs font-semibold rounded-lg bg-brand-800 text-slate-300 hover:bg-brand-700 hover:text-white transition-all">Coverage analysis</button>
                 </div>
             </div>
         </div>
@@ -82,14 +82,14 @@
         <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm mb-8">
             <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                Inquadramento Metodologico dell'Allineamento Strategico
+                Methodological Framework of the Strategic Alignment
             </h2>
             <p class="text-sm text-slate-600 mt-2 leading-relaxed">
-                Il progetto pilota <strong>EUNetCCC (Romagna Pilot IRST-AUSL)</strong> è articolato su <strong>6 dimensioni di lavoro attive</strong> che coprono gli aspetti fondamentali dell'integrazione e del potenziamento della rete oncologica locale. Al fine di allineare lo sforzo gestionale con gli standard del consorzio europeo <strong>CraNE D7.2 (Set of criteria and standards for EU CCCs)</strong>, è stata mappata ciascuna delle 29 milestone previste dal cronoprogramma. 
-                Questa associazione bidirezionale dimostra come le attività operative di integrazione romagnola costituiscano il veicolo pratico per raggiungere la conformità ai requisiti europei e, viceversa, come i requisiti europei offrano una solida guida di qualità per le tappe del progetto.
+                The <strong>EUNetCCC pilot project (Romagna Pilot IRST-AUSL)</strong> is structured around <strong>6 active work dimensions</strong> covering the fundamental aspects of integrating and strengthening the local oncological network. In order to align the management effort with the standards of the <strong>European consortium CraNE D7.2 (Set of criteria and standards for EU CCCs)</strong>, each of the 29 milestones scheduled in the timeline has been mapped.
+                 This bidirectional association demonstrates how the operational integration activities in Romagna serve as the practical vehicle to achieve compliance with European requirements and, conversely, how the European requirements provide a robust quality guide for the project's milestones.
             </p>
             <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5 mt-3 text-xs text-amber-950">
-                <strong>Nota di Analisi sulla Prevenzione (Dimension 6):</strong> Nel cronoprogramma operativo del pilota, le attività di prevenzione primaria e secondaria non sono presidiate da milestone esplicite ma sono integrate nei processi istituzionali sanitari locali e regionali già esistenti. Di conseguenza, il Tema 5 (Prevention) di CraNE riflette questa caratteristica organizzativa mostrando una copertura da mappare sui canali ordinari aziendali.
+                <strong>Analysis Note on Prevention (Dimension 6):</strong> In the pilot's operational timeline, primary and secondary prevention activities are not managed by explicit milestones but are instead integrated into already existing local and regional institutional healthcare processes. Consequently, CraNE Topic 5 (Prevention) reflects this organizational characteristic, showing a coverage to be mapped through standard corporate channels.
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-4 pt-4 border-t border-slate-100">
                 <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-150 text-center">
